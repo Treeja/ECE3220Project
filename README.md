@@ -2,7 +2,7 @@
 - Tasks
   - Factory Design for NPC’s - Nick
   - Strategy Design for Dialogue - Sam
-  -Moving around room - Gavin (doubly linked list)
+  - Moving around room - Gavin (doubly linked list)
 - Features
   - Inventory
     - File IO
