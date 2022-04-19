@@ -13,10 +13,12 @@
 #define CHARACTERFACTORY_H
 
 #include "Gary.h"
+#include "Chris.h"
 
 class CharacterFactory{
 public:
     Gary* createGary();
+    Chris* createChris();
 
     void DeleteCharacter(Character* character);
 };

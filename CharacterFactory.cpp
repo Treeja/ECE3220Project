@@ -16,6 +16,10 @@ Gary* CharacterFactory::createGary(){
     return (new Gary());
 }
 
+Chris* CharacterFactory::createChris(){
+    return (new Chris());
+}
+
 void CharacterFactory::DeleteCharacter(Character* character){
     delete character;
 }
