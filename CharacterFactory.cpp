@@ -20,6 +20,10 @@ Chris* CharacterFactory::createChris(){
     return (new Chris());
 }
 
+Sally* CharacterFactory::createSally(){
+    return (new Sally());
+}
+
 void CharacterFactory::DeleteCharacter(Character* character){
     delete character;
 }

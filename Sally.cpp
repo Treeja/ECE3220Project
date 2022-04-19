@@ -1,5 +1,5 @@
 /**
- * @file Gary.cpp
+ * @file Sally.cpp
  * @author Nicholas Ebers (nae5np@umsystem.edu)
  * @brief 
  * @version 0.1
@@ -9,10 +9,10 @@
  * 
  */
 
-#include "Gary.h"
+#include "Sally.h"
 #include <iostream>
-Gary::Gary() : Character(){}
-std::string Gary::get_dialogue(int choice){
+Sally::Sally() : Character(){}
+std::string Sally::get_dialogue(int choice){
     if(exhaustion_ < 3){  
         switch (choice)
         {

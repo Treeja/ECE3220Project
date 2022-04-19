@@ -14,11 +14,13 @@
 
 #include "Gary.h"
 #include "Chris.h"
+#include "Sally.h"
 
 class CharacterFactory{
 public:
     Gary* createGary();
     Chris* createChris();
+    Sally* createSally();
 
     void DeleteCharacter(Character* character);
 };
