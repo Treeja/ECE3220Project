@@ -1,2 +1,5 @@
 .vscode/
+main*
+*.o
 /build/*
+*akefile
