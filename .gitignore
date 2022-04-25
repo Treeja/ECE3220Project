@@ -1,4 +1,6 @@
 .vscode/
+
+main*
+*.o
 /build/*
-Makefile
-main.cpp
+*akefile
