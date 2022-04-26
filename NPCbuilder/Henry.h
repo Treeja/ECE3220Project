@@ -1,26 +1,26 @@
 /**
- * @file Chris.h
+ * @file Henry.h
  * @author Nicholas Ebers (nae5np@umsystem.edu)
  * @brief 
  * @version 0.1
- * @date 2022-04-19
+ * @date 2022-04-25
  * 
  * @copyright Copyright (c) 2022
  * 
  */
 
-#ifndef CHRIS_H
-#define CHRIS_H
+#ifndef HENRY_H
+#define HENRY_H
 
 #include "Character.h"
 #include <string>
 #include <sstream>
 
-class Chris : public Character{
+class Henry : public Character{
 private:
     int exhaustion_; 
 public:
-    Chris();
+    Henry();
     std::string get_dialogue(int choice) override;
 
 };
