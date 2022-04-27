@@ -13,6 +13,6 @@
 #include <iostream>
 Gary::Gary() : Character(){}
 std::string Gary::get_dialogue(int choice){
-    return "He's dead, what did you expect from this?";
+    return "He's dead, what did you expect from this?\n";
     }
 }
