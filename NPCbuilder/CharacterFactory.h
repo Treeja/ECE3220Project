@@ -15,12 +15,19 @@
 #include "Gary.h"
 #include "Chris.h"
 #include "Sally.h"
+#include "Peter.h"
+#include "Henry.h"
+#include "Carrie.h"
 
 class CharacterFactory{
 public:
     Gary* createGary();
     Chris* createChris();
     Sally* createSally();
+    Peter* createPeter();
+    Henry* createHenry();
+    Carrie* createCarrie();
+
 
     void DeleteCharacter(Character* character);
 };

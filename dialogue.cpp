@@ -12,11 +12,11 @@
 #include <iostream>
 
 DialogueDecision::DialogueDecision(){
-    questions.push_back("(1) How do you know gary?");
+    questions.push_back("(1) How do you know Gary?");
     questions.push_back("(2) Where were you before the lights went out?");
     questions.push_back("(3) What is your involvement with the research?");
-    questions.push_back("(4) What's your favorite color?");
-    questions.push_back("(5) How many 'I's are there in 'Mississippi'");
+    questions.push_back("(4) Did you hear or see anything worth noting?");
+    questions.push_back("(5) Who do you think killed Gary?");
 }
 
 DialogueDecision::~DialogueDecision(){
