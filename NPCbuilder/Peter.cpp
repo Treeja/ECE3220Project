@@ -1,18 +1,18 @@
 /**
- * @file Chris.cpp
+ * @file Peter.cpp
  * @author Nicholas Ebers (nae5np@umsystem.edu)
  * @brief 
  * @version 0.1
- * @date 2022-04-19
+ * @date 2022-04-25
  * 
  * @copyright Copyright (c) 2022
  * 
  */
 
-#include "Chris.h"
+#include "Peter.h"
 #include <iostream>
-Chris::Chris() : Character(){}
-std::string Chris::get_dialogue(int choice){
+Peter::Peter() : Character(){}
+std::string Peter::get_dialogue(int choice){
     if(exhaustion_ < 3){  
         switch (choice)
         {
