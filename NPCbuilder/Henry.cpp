@@ -28,31 +28,31 @@ std::string Henry::get_dialogue(int choice){
         {
         case 1:
             exhaustion_ += 1;
-            return "Gary you see, is a collegue of mine. We studied together in graduate school and have been researching together for years. He is a dear old friend of mine. I can't believe someone could have done this.";
+            return "Gary you see, is a collegue of mine. We studied together in graduate school and have been researching together for years. He is a dear old friend of mine. I can't believe someone could have done this.\n";
             break;
         case 2:
             exhaustion_ += 1;
-            return "Well I was over in the ______ writing a rough draft of...our...paper. We are working on some cutting edge stuff here, I'll send you a copy once I get published.";
+            return "Well I was over in the ______ writing a rough draft of...our...paper. We are working on some cutting edge stuff here, I'll send you a copy once I get published.\n";
             break;
         case 3:
             exhaustion_ += 1;
-            return "I am a co-researcher in this lab. I don't know why but the university refuses to give me my own lab, but I don't mind researching with Gary I guess...";
+            return "I am a co-researcher in this lab. I don't know why but the university refuses to give me my own lab, but I don't mind researching with Gary I guess...\n";
             break;
         case 4:
             exhaustion_ += 1;
-            return "The custodian, whats his name...ah yes Peter...he moved awfully quick when those lights went out. You might talk to him and see what he was doing before the lights went out.";
+            return "The custodian, whats his name...ah yes Peter...he moved awfully quick when those lights went out. You might talk to him and see what he was doing before the lights went out.\n";
             break;
         case 5:
             exhaustion_ += 1;
-            return "I honestly think it was that janitor, Peter right? He just always seems to have a look in his eyes. I think he hates working here.";
+            return "I honestly think it was that janitor, Peter right? He just always seems to have a look in his eyes. I think he hates working here.\n";
             break;
         
         default:
-            return "Sir, I am a scholar. If you are going to ask me questions I'm going to need you to speak clearly";
+            return "Sir, I am a scholar. If you are going to ask me questions I'm going to need you to speak clearly\n";
             break;
         }
     }
     else{
-        return "Sir, I need to get back to my research. You've exhausted me.";
+        return "Sir, I need to get back to my research. You've exhausted me.\n";
     }
 }
