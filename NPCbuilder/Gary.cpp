@@ -13,36 +13,6 @@
 #include <iostream>
 Gary::Gary() : Character(){}
 std::string Gary::get_dialogue(int choice){
-    if(exhaustion_ < 3){  
-        switch (choice)
-        {
-        case 1:
-            exhaustion_ += 1;
-            return "Answer 1";
-            break;
-        case 2:
-            exhaustion_ += 1;
-            return "Answer 2";
-            break;
-        case 3:
-            exhaustion_ += 1;
-            return "Answer 3";
-            break;
-        case 4:
-            exhaustion_ += 1;
-            return "Answer 4";
-            break;
-        case 5:
-            exhaustion_ += 1;
-            return "Answer 5";
-            break;
-        
-        default:
-            return "No answer for your dumb questions sir";
-            break;
-        }
-    }
-    else{
-        return "I don't feel like talking anymore..";
+    return "He's dead, what did you expect from this?\n";
     }
 }
