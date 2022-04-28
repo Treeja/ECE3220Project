@@ -50,14 +50,14 @@ class Context
     private:
         Strategy *strategy_;
     public:
-        Context(Strategy *strategy = nullptr) : strategy_(strategy){}
+        Context(Strategy* const s ) : strategy_(s){}
         ~Context(){delete this->strategy_;}
         void set_strategy(Strategy *strategy){
             delete this->strategy_;
             this->strategy_ = strategy;
         }
-        Strategy* getStrategy(){
-            return strategy_;
+        void PrintQuestions(){
+            strategy_->PrintQuestions();
         }
 };
 
@@ -72,11 +72,16 @@ class MainMenu : public Strategy{
         };
     public:
         // Make sure this works calling the base function, as this function shouldn't change for any of the classes but still needs to be available
-        void PrintQuestions();
+        MainMenu();
+        ~MainMenu() override;
+        void PrintQuestions() override;
 };
 
 class Move : public Strategy{
-
+    public:
+        Move();
+        ~Move() override;
+        void PrintQuestions() override;
 };
 
 class Interact : public Strategy{
@@ -87,7 +92,9 @@ class Interact : public Strategy{
             {3, "(3) Go Back"}
         };
     public:
-        void PrintQuestions();
+        Interact();
+        ~Interact() override;
+        void PrintQuestions() override;
 
 };
 class Interact_Object : public Strategy{
@@ -96,7 +103,9 @@ class Interact_Object : public Strategy{
             {1, "(1) Inspect Object"}
         };
     public:
-        void PrintQuestions();
+        Interact_Object();
+        ~Interact_Object() override;
+        void PrintQuestions() override;
 };
 class Interact_NPC : public Strategy{
     protected:
@@ -106,10 +115,15 @@ class Interact_NPC : public Strategy{
             {3, "(3) Search [Permission Needed]"}
         };
     public:
-        void PrintQuestions();
+        Interact_NPC();
+        ~Interact_NPC() override;
+        void PrintQuestions() override;
 };
 class Interact_Hol : public Strategy{
-
+    public:
+        Interact_Hol();
+        ~Interact_Hol() override;
+        void PrintQuestions() override;
 };
 class Inventory : public Strategy{
     protected:
@@ -117,10 +131,15 @@ class Inventory : public Strategy{
             {1, "(1) View Notes"}
         };
     public:
-        void PrintQuestions();
+        Inventory();
+        ~Inventory() override;
+        void PrintQuestions() override;
 };
 class Inventory_ViewNotes : public Strategy{
-
+    public:
+        Inventory_ViewNotes();
+        ~Inventory_ViewNotes() override;
+        void PrintQuestions() override;
 };
 
 class DeclareKiller : public Strategy{
@@ -129,10 +148,15 @@ class DeclareKiller : public Strategy{
             {1, "Are you sure you want to declare the killer?"}
         };
     public:
-        void PrintQuestions();
+        DeclareKiller();
+        ~DeclareKiller() override;
+        void PrintQuestions() override;
 };
 class MenuBack : public Strategy{
-
+    public:
+        MenuBack();
+        ~MenuBack() override;
+        void PrintQuestions() override;
 };
 
 
