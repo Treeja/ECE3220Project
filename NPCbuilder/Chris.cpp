@@ -53,3 +53,7 @@ std::string Chris::get_dialogue(int choice){
 std::string Chris::get_descrip(){
     return "Chris looks young, probably not 21 yet. He has a proud stance to him, you notice that he really only breaths through his mouth. He is the only one in the lab wearing shorts and open toed shoes.\n";
 }
+
+std::string Chris::search(){
+    return "On Chris' person you find; a fake ID and a note with specific details regading the death laser (he most likely shouldn't be writting this stuff down for security reasons).\n";
+}

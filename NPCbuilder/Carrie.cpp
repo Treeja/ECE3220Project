@@ -56,3 +56,7 @@ std::string Carrie::get_descrip(){
     return "You see that Carrie is wearing a battered lab coat with three pens sitting in the pocket, one of them leaking. Her lab goggles are sitting crooked on her forhead. She has a coffee cup in her hand and she can't seem to sit still and is clearly out of breath. You notice that her fingers are slighlty bloody, with bandages.\n";
 
 }
+
+std::string Carrie::search(){
+    return "You search Carrie and find a broken pen, a bottle of adderall, and a bunch of random electrical components like resistors and capacitors.\n";
+}

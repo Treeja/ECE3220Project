@@ -63,3 +63,7 @@ std::string Peter::get_dialogue(int choice){
 std::string Peter::get_descrip(){
     return "Peter is a little rough around the edges, you can tell its been a couple of weeks since he shaved. He is wearing the classic blue janitor jumpsuit. His work boots are torn and you can see that they are a little wet. His mop sits behind him in the mop bucket, as if he had just been using it.\n";
 }
+
+std::string Peter::search(){
+    return "You found a swiss army knife that is slightly gunked up, a large key ring one of them labled 'Laser Lab', and wire cutters\n";
+}

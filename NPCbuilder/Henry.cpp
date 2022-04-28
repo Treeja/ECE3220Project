@@ -61,3 +61,7 @@ std::string Henry::get_dialogue(int choice){
 std::string Henry::get_descrip(){
     return "Henry is clean cut, and is wearing a very nice and clean lab coat. The three pins in his lab coat are perfectly aligned. Currently it look that he is writting some sort of academic paper. He looks like he doesn't have time to talk.\n";
 }
+
+std::string Henry::search(){
+    return "All you can find on Henry is a wallet that contain a picture of Gary and Henry when they were younger. Probably undergrads back then\n";
+}
