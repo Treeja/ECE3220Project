@@ -1,5 +1,5 @@
 .vscode/
-
+project*
 main*
 *.o
 /build/*

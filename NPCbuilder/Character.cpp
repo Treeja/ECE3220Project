@@ -18,3 +18,11 @@ Character::Character(){
 std::string Character::get_dialogue(int choice){
     return "Base Class Invoked";
 }
+
+std::string Character::get_descrip(){
+    return "Base Class Invoked";
+}
+
+std::string Character::search(){
+    return "Base Class Invoked"
+}

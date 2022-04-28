@@ -22,6 +22,8 @@ private:
 public:
     Sally();
     std::string get_dialogue(int choice) override;
+    std::string get_descrip() override;
+    std::string search() override;
 
 };
 
