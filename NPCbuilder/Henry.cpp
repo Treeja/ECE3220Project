@@ -32,7 +32,7 @@ std::string Henry::get_dialogue(int choice){
             break;
         case 2:
             exhaustion_ += 1;
-            return "Well I was over in the ______ writing a rough draft of...our...paper. We are working on some cutting edge stuff here, I'll send you a copy once I get published.\n";
+            return "Well I was here in the office area writing a rough draft of...our...paper. We are working on some cutting edge stuff here, I'll send you a copy once I get published.\n";
             break;
         case 3:
             exhaustion_ += 1;
@@ -59,5 +59,9 @@ std::string Henry::get_dialogue(int choice){
 
 //Gets Character Description
 std::string Henry::get_descrip(){
-    return "Place Holder";
+    return "Henry is clean cut, and is wearing a very nice and clean lab coat. The three pins in his lab coat are perfectly aligned. Currently it look that he is writting some sort of academic paper. He looks like he doesn't have time to talk.\n";
+}
+
+std::string Henry::search(){
+    return "All you can find on Henry is a wallet that contain a picture of Gary and Henry when they were younger. Probably undergrads back then\n";
 }

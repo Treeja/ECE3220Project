@@ -22,3 +22,7 @@ std::string Character::get_dialogue(int choice){
 std::string Character::get_descrip(){
     return "Base Class Invoked";
 }
+
+std::string Character::search(){
+    return "Base Class Invoked"
+}

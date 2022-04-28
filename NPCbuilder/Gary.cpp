@@ -19,5 +19,9 @@ std::string Gary::get_dialogue(int choice){
 
 //Gets Character Description
 std::string Gary::get_descrip(){
-    return "Place Holder";
+    return "Aside from the obvious, that Gary is dead, you notice that there has been some blunt force trauma to the back of his head. Blood looks like it spilt out the back of his head and is now pulled up next to him on the floor. You also notice some blisters on his fingers as if he had burnt them. There is a piece of paper sticking out of his back pocket.\n";
+}
+
+std::string Gary::search(){
+    return "Inside of Gary's pocket you find a note. It looks like the note has data regarding the laser, oddly though the data is scratched out and new data is in its place with a different handwritting\n";
 }

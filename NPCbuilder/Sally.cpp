@@ -34,7 +34,7 @@ std::string Sally::get_dialogue(int choice){
             break;
         case 2:
             exhaustion_ += 1;
-            return "";
+            return "I was over in the office area getting ready trying to figure out how to tell Henry and Gary that we were cutting the funding to this project.\n";
             break;
         case 3:
             exhaustion_ += 1;
@@ -61,5 +61,9 @@ std::string Sally::get_dialogue(int choice){
 
 //Gets Character Description
 std::string Sally::get_descrip(){
-    return "Place Holder";
+    return "Sally is in a very nice, probably expensive suit. Her hair is pulled back and she look mean. He fists are curled up so tight that her knuckles are white. She has a note in her pocket with the word NOTICE visible.\n";
+}
+
+std::string Sally::get_descrip(){
+    return "On Sally you find a note from her employer with details regarding the defunding of the lab. It looks as if they will be stripping down the lab and selling it to Russia\n"
 }

@@ -21,8 +21,9 @@ protected:
     int exhaustion_;
 public:
     Character(); //default constructor
-    virtual std::string get_dialogue(int choice);
-    virtual std::string get_descrip();
+    virtual std::string get_dialogue(int choice); //get dialogue for each character
+    virtual std::string get_descrip(); //gets description of each character
+    virtual std::string search(); //searches each character
     
 };
 
