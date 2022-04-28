@@ -28,6 +28,7 @@ class Location
         Location* move(Location* head_ref, int num);
         Location* start(Location* head_ref); 
         int nextPoint(Location* head_ref);
+        void description(Location* head_ref);
 
 };
 

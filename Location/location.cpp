@@ -49,7 +49,7 @@ void Location::append(Location** head_ref, std::string newArea)
 void Location::printList(Location* node)
 {
     Location* last;
-    std::cout<<"\nTraversal in forward direction \n";
+    //std::cout<<"\nTraversal in forward direction \n";
     while (node != NULL)
     {
         std::cout<<"Area: "<<node->area<< std::endl;
@@ -57,7 +57,7 @@ void Location::printList(Location* node)
         node = node->next;
     }
  
-    std::cout<<"\nTraversal in reverse direction \n";
+    //std::cout<<"\nTraversal in reverse direction \n";
     while (last != NULL)
     {
         std::cout<<" "<<last->area<<" ";
@@ -105,8 +105,7 @@ Location* Location::start(Location* head_ref){
 
 int Location::nextPoint(Location* head_ref){
     int nextMove = -1;
-    std::cout << "You are in the " << head_ref->area << ". Where would you like to move next?\n"
-    << "Please type in number of place you would like to move.\n" 
+    std::cout << "Where would you like to move next?\n" << "Please type in number of place you would like to move.\n" 
     << "1) Office Area\n2) Break Area\n3) Test Area\n4) Component Storage\n";
     
     //User can pick next location only if it is a given option
@@ -118,4 +117,23 @@ int Location::nextPoint(Location* head_ref){
     }
 
     return nextMove;
+}
+
+void Location::description(Location* head_ref){
+    node_ = head_ref->node_;
+    if(node_ == 1){
+        std::cout << "You are in the " << head_ref->area << ". Where you see nothing but cubicals. Henry is sitting at his cubical working. A few desk down you see a desk with a notebook on it.\n" << std::endl;
+    }
+    if(node_ == 2){
+        std::cout << "You are in the " << head_ref->area << ". Filled with coffee cups and food wrapers. The is acouple of microwaves and a coffee maker with a pot of caffeinated coffee. You see Carrie pouring another cup of coffee while talking to Sally.\n" << std::endl;
+    }
+    if(node_ == 3){
+        std::cout << "You are in the " << head_ref->area << ". Where Gary's body lies next to a puddle of water. You can hear the death laser shutting down. Next to the laser there are abunch of circuits next to testing equipment." << std::endl;
+    }
+    if(node_ == 4){
+        std::cout << "You are in " << head_ref->area << ". You see Chris and Peter standing " << std::endl;
+    }
+    if(node_ > 4 || node_ < 1){
+        std::cout << "Houston we have a problem\n";
+    }
 }
