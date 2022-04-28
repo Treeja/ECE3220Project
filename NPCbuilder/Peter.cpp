@@ -34,7 +34,7 @@ std::string Peter::get_dialogue(int choice){
             break;
         case 2:
             exhaustion_ += 1;
-            return "I was over in the test area, cleaning up another one of their spills\n";
+            return "I was here in component storage cleaning up another one of their spills\n";
             break;
         case 3:
             exhaustion_ += 1;
@@ -61,5 +61,5 @@ std::string Peter::get_dialogue(int choice){
 
 //Gets Character Description
 std::string Peter::get_descrip(){
-    return "Place Holder";
+    return "Peter is a little rough around the edges, you can tell its been a couple of weeks since he shaved. He is wearing the classic blue janitor jumpsuit. His work boots are torn and you can see that they are a little wet. His mop sits behind him in the mop bucket, as if he had just been using it.\n";
 }

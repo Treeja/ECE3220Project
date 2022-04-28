@@ -51,5 +51,5 @@ std::string Chris::get_dialogue(int choice){
 
 //Gets Character Description
 std::string Chris::get_descrip(){
-    return "Chris looks young, probably not 21 yet. He has a proud stance to him, you notice that his you can see that he really only breaths through his mouth though. He is the only one in the lab wearing shorts and open toed shoes.\n";
+    return "Chris looks young, probably not 21 yet. He has a proud stance to him, you notice that he really only breaths through his mouth. He is the only one in the lab wearing shorts and open toed shoes.\n";
 }
