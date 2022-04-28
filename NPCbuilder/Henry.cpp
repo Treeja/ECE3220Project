@@ -56,3 +56,8 @@ std::string Henry::get_dialogue(int choice){
         return "Sir, I need to get back to my research. You've exhausted me.\n";
     }
 }
+
+//Gets Character Description
+std::string Henry::get_descrip(){
+    return "Place Holder";
+}

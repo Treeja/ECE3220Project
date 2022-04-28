@@ -58,3 +58,8 @@ std::string Sally::get_dialogue(int choice){
         return "Time is money and I'm not sure you have the money to afford my time\n";
     }
 }
+
+//Gets Character Description
+std::string Sally::get_descrip(){
+    return "Place Holder";
+}

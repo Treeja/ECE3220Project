@@ -48,3 +48,8 @@ std::string Chris::get_dialogue(int choice){
         return "Okay you've bugged me long enough I need to keep writing in my notebook\n";
     }
 }
+
+//Gets Character Description
+std::string Chris::get_descrip(){
+    return "Place Holder";
+}

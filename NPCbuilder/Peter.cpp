@@ -58,3 +58,8 @@ std::string Peter::get_dialogue(int choice){
         return "Someones gotta start cleaning this up. See ya later\n";
     }
 }
+
+//Gets Character Description
+std::string Peter::get_descrip(){
+    return "Place Holder";
+}
