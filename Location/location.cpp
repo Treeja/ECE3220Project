@@ -70,11 +70,12 @@ void Location::printList(Location* node)
 }
 
 Location* Location::move(Location* head_ref, int num){
-    std::cout << head_ref->area << std::endl;
     std::cout << "Node Before:" << head_ref->node_ << std::endl;
+    std::cout << head_ref->area << std::endl;
     node_ = head_ref->node_;
 
     while(node_ < num){
+        std::cout << "Node During:" << node_ << std::endl;
         head_ref = head_ref->next;
         node_ = node_ + 1;
     }
@@ -88,6 +89,8 @@ Location* Location::move(Location* head_ref, int num){
         node_ = node_ - 1;
         //std::cout << node_ << std::endl;
     }
+    std::cout << head_ref->area << std::endl;
+    std::cout << "Node after:" << head_ref->node_ << std::endl;
     head_ref->node_ = node_;
     //std::cout <<  "Node after backward:" << head_ref->node_ << std::endl;
     
