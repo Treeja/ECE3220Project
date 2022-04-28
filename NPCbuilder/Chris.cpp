@@ -28,7 +28,7 @@ std::string Chris::get_dialogue(int choice){
             break;
         case 3:
             exhaustion_ += 1;
-            return "I'm a undergraduate research assistant in the lab, probably because I'm the smartest kind in the class.\n";
+            return "I'm a undergraduate research assistant in the lab, probably because I'm the smartest kid in the class.\n";
             break;
         case 4:
             exhaustion_ += 1;
@@ -51,5 +51,5 @@ std::string Chris::get_dialogue(int choice){
 
 //Gets Character Description
 std::string Chris::get_descrip(){
-    return "Place Holder";
+    return "Chris looks young, probably not 21 yet. He has a proud stance to him, you notice that his you can see that he really only breaths through his mouth though. He is the only one in the lab wearing shorts and open toed shoes.\n";
 }
