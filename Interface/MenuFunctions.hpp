@@ -14,6 +14,7 @@
 #include "../Dialogue/dialogue.hpp"
 #include "../Interface/Interface.hpp"
 #include "../Location/location.h"
+#include "../Location/objects.h"
 #include <iostream>
 
 /**
@@ -32,7 +33,7 @@ int getInput(){
  * 
  * @param context 
  */
-void MoveMenu(Context *context, Location* head){
+void MoveMenu(Context *context, Location *head){
     int choice = 0;
     context->set_strategy(new Move);
     do
@@ -44,13 +45,13 @@ void MoveMenu(Context *context, Location* head){
         switch(choice){
             case 1:
                 std::cout << "[Office Area] Chosen!\n";
-                head = head->move(head,1);
+                *head = *head->move(head,1);
                 head->description(head);
                 return;
                 break;
             case 2:
                 std::cout << "[Break Area] Chosen!\n";
-                head = head->move(head,2);
+                *head = *head->move(head,2);
                 head->description(head);
                 return;
                 break;
@@ -209,10 +210,13 @@ void DeclareKillerMenu(Context *context){
 }
 
 
-void MainMenuMenu(Context *context, Location *head){
+void MainMenuMenu(Context *context){
     int userChoice = 0;
+    Location* head = nullptr;
+    Object objects;
     do
     {
+        head = head->start(head);
         context->set_strategy(new MainMenu);
         std::cout << "What would you like to do?\n";
         context->PrintQuestions();
