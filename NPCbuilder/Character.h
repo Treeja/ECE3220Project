@@ -22,6 +22,7 @@ protected:
 public:
     Character(); //default constructor
     virtual std::string get_dialogue(int choice);
+    virtual std::string get_descrip();
     
 };
 

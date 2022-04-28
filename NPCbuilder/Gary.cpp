@@ -12,7 +12,12 @@
 #include "Gary.h"
 #include <iostream>
 Gary::Gary() : Character(){}
+
 std::string Gary::get_dialogue(int choice){
     return "He's dead, what did you expect from this?\n";
-    }
+}
+
+//Gets Character Description
+std::string Gary::get_descrip(){
+    return "Place Holder";
 }

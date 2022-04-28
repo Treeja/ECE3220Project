@@ -46,7 +46,7 @@ std::string Peter::get_dialogue(int choice){
             break;
         case 5:
             exhaustion_ += 1;
-            return "Honestly for all I know it was me. I don't know these people!\n";
+            return "I don't really know these people outside of cleaning up after them but there's something about the lady in the suit. I overheard her talking to herself about needing to find a way to cut the funding\n";
             break;
         
         default:
@@ -57,4 +57,9 @@ std::string Peter::get_dialogue(int choice){
     else{
         return "Someones gotta start cleaning this up. See ya later\n";
     }
+}
+
+//Gets Character Description
+std::string Peter::get_descrip(){
+    return "Place Holder";
 }
