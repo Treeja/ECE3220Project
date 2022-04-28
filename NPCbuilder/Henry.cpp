@@ -59,5 +59,5 @@ std::string Henry::get_dialogue(int choice){
 
 //Gets Character Description
 std::string Henry::get_descrip(){
-    return "Place Holder";
+    return "Henry is clean cut, and is wearing a very nice and clean lab coat. The three pins in his lab coat are perfectly aligned. He is clean from head to toe.";
 }
