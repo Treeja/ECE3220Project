@@ -13,6 +13,7 @@
 #define MENUFUNCTIONS_H
 #include "../Dialogue/dialogue.hpp"
 #include "../Interface/Interface.hpp"
+#include "../Location/location.h"
 #include <iostream>
 
 /**
@@ -31,7 +32,7 @@ int getInput(){
  * 
  * @param context 
  */
-void MoveMenu(Context *context){
+void MoveMenu(Context *context, Location* head){
     int choice = 0;
     context->set_strategy(new Move);
     do
@@ -43,19 +44,26 @@ void MoveMenu(Context *context){
         switch(choice){
             case 1:
                 std::cout << "[Office Area] Chosen!\n";
-
+                head = head->move(head,1);
+                head->description(head);
                 return;
                 break;
             case 2:
                 std::cout << "[Break Area] Chosen!\n";
+                head = head->move(head,2);
+                head->description(head);
                 return;
                 break;
             case 3:
                 std::cout << "[Test Area] Chosen!\n";
+                head = head->move(head,3);
+                head->description(head);
                 return;
                 break;
             case 4:
                 std::cout << "[Component Area] Chosen!\n";
+                head = head->move(head,3);
+                head->description(head);
                 return;
                 break;
             case 5:
@@ -201,7 +209,7 @@ void DeclareKillerMenu(Context *context){
 }
 
 
-void MainMenuMenu(Context *context){
+void MainMenuMenu(Context *context, Location *head){
     int userChoice = 0;
     do
     {
@@ -212,7 +220,7 @@ void MainMenuMenu(Context *context){
         switch(userChoice){
             case 1:
                 std::cout << "[Move] Chosen!\n";
-                MoveMenu(context);
+                MoveMenu(context, head);
                 // Gavin's functions.
                 break;
             case 2:
