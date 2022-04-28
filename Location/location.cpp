@@ -122,16 +122,16 @@ int Location::nextPoint(Location* head_ref){
 void Location::description(Location* head_ref){
     node_ = head_ref->node_;
     if(node_ == 1){
-        std::cout << "You are in the " << head_ref->area << ". Where you see nothing but cubicals. Henry is sitting at his cubical working. A few desk down you see a desk with a notebook on it.\n" << std::endl;
+        std::cout << "You are in the " << head_ref->area << ". Where you see nothing but cubicals. Henry is sitting at his cubical working.\nA few desk down you see a desk with a notebook on it.\n" << std::endl;
     }
     if(node_ == 2){
-        std::cout << "You are in the " << head_ref->area << ". Filled with coffee cups and food wrapers. The is acouple of microwaves and a coffee maker with a pot of coffee. You see Carrie pouring another cup of coffee while talking to Sally.\n" << std::endl;
+        std::cout << "You are in the " << head_ref->area << ". Filled with coffee cups and food wrapers. The is acouple of microwaves and a coffee maker with a pot of coffee.\nYou see Carrie pouring another cup of coffee while talking to Sally.\n" << std::endl;
     }
     if(node_ == 3){
-        std::cout << "You are in the " << head_ref->area << ". Where Gary's body lies next to a puddle of water. You can hear the death laser shutting down. Next to the laser there are abunch of circuits next to testing equipment." << std::endl;
+        std::cout << "You are in the " << head_ref->area << ". Where Gary's body lies next to a puddle of water. You can hear the death laser shutting down.\nNext to the laser there are abunch of circuits next to testing equipment." << std::endl;
     }
     if(node_ == 4){
-        std::cout << "You are in " << head_ref->area << ". You see Chris and Peter standing at different sides of the room. There is alot of water splashed around the room." << std::endl;
+        std::cout << "You are in " << head_ref->area << ". You see Chris and Peter standing at different sides of the room.\nThere is alot of water splashed around the room." << std::endl;
     }
     if(node_ > 4 || node_ < 1){
         std::cout << "Houston we have a problem\n";
