@@ -1,15 +1,13 @@
 /**
  * @file Interface.hpp
  * @author Sam Bealmer (sjbhyf@umsystem.edu)
- * @brief Main user interface for deciding where to go, what to do, etc.
+ * @brief Declarations for Strategy Design for User Interface
  * @version 0.1
  * @date 2022-04-25
  * 
  * @copyright Copyright (c) 2022
  * 
  */
-
-
 
 #include <string>
 #include <map>
@@ -22,12 +20,8 @@
  * @brief Declares operations common to all supported strategies
  * 
  */
-MainMenu::MainMenu(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
-MainMenu::~MainMenu(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+MainMenu::MainMenu(){}
+MainMenu::~MainMenu(){}
 void MainMenu::PrintQuestions(){
     for (int i = 1; i < questions.size()+1; i++)
     {
@@ -35,12 +29,18 @@ void MainMenu::PrintQuestions(){
     }
 }
 
-Interact::Interact(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+Move::Move(){}
+Move::~Move(){}
+void Move::PrintQuestions(){
+    for (int i = 1; i < questions.size()+1; i++)
+    {
+        std::cout << questions.at(i) << std::endl;
+    }
+    return;
 }
-Interact::~Interact(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+
+Interact::Interact(){}
+Interact::~Interact(){}
 void Interact::PrintQuestions(){
     for (int i = 1; i < questions.size()+1; i++)
     {
@@ -48,12 +48,8 @@ void Interact::PrintQuestions(){
     }
 }
 
-Interact_NPC::Interact_NPC(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
-Interact_NPC::~Interact_NPC(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+Interact_NPC::Interact_NPC(){}
+Interact_NPC::~Interact_NPC(){}
 void Interact_NPC::PrintQuestions(){
     for (int i = 1; i < questions.size()+1; i++)
     {
@@ -61,12 +57,8 @@ void Interact_NPC::PrintQuestions(){
     }
 }
 
-Interact_Object::Interact_Object(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
-Interact_Object::~Interact_Object(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+Interact_Object::Interact_Object(){}
+Interact_Object::~Interact_Object(){}
 void Interact_Object::PrintQuestions(){
     for (int i = 1; i < questions.size()+1; i++)
     {
@@ -74,12 +66,8 @@ void Interact_Object::PrintQuestions(){
     }
 }
 
-Inventory::Inventory(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
-Inventory::~Inventory(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+Inventory::Inventory(){}
+Inventory::~Inventory(){}
 void Inventory::PrintQuestions(){
     for (int i = 1; i < questions.size()+1; i++)
     {
@@ -87,12 +75,8 @@ void Inventory::PrintQuestions(){
     }
 }
 
-DeclareKiller::DeclareKiller(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
-DeclareKiller::~DeclareKiller(){
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+DeclareKiller::DeclareKiller(){}
+DeclareKiller::~DeclareKiller(){}
 void DeclareKiller::PrintQuestions(){
     for (int i = 1; i < questions.size()+1; i++)
     {

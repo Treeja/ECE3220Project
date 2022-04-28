@@ -78,6 +78,14 @@ class MainMenu : public Strategy{
 };
 
 class Move : public Strategy{
+    protected:
+        std::map<int,std::string> questions = {
+            {1, "(1) Office Area"},
+            {2, "(2) Break Area"},
+            {3, "(3) Test Area"},
+            {4, "(4) Component Storage"},
+            {5, "(5) Go Back"}
+        };
     public:
         Move();
         ~Move() override;
@@ -100,7 +108,8 @@ class Interact : public Strategy{
 class Interact_Object : public Strategy{
     protected:
         std::map<int, std::string> questions = {
-            {1, "(1) Inspect Object"}
+            {1, "(1) Inspect Object"},
+            {2, "(2) Go Back"}
         };
     public:
         Interact_Object();
@@ -112,7 +121,8 @@ class Interact_NPC : public Strategy{
         std::map<int, std::string> questions = {
             {1, "(1) Description"},
             {2, "(2) Question"},
-            {3, "(3) Search [Permission Needed]"}
+            {3, "(3) Search [Permission Needed]"},
+            {4, "(4) Go Back"}
         };
     public:
         Interact_NPC();
@@ -128,17 +138,12 @@ class Interact_Hol : public Strategy{
 class Inventory : public Strategy{
     protected:
         std::map<int, std::string> questions = {
-            {1, "(1) View Notes"}
+            {1, "(1) View Notes"},
+            {2, "(2) Go Back"}
         };
     public:
         Inventory();
         ~Inventory() override;
-        void PrintQuestions() override;
-};
-class Inventory_ViewNotes : public Strategy{
-    public:
-        Inventory_ViewNotes();
-        ~Inventory_ViewNotes() override;
         void PrintQuestions() override;
 };
 
@@ -150,12 +155,6 @@ class DeclareKiller : public Strategy{
     public:
         DeclareKiller();
         ~DeclareKiller() override;
-        void PrintQuestions() override;
-};
-class MenuBack : public Strategy{
-    public:
-        MenuBack();
-        ~MenuBack() override;
         void PrintQuestions() override;
 };
 
