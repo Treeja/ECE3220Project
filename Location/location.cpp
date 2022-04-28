@@ -105,15 +105,10 @@ Location* Location::start(Location* head_ref){
 
 int Location::nextPoint(Location* head_ref){
     int nextMove = -1;
-    std::cout << "Where would you like to move next?\n" << "Please type in number of place you would like to move.\n" 
-    << "1) Office Area\n2) Break Area\n3) Test Area\n4) Component Storage\n";
     
     //User can pick next location only if it is a given option
     while(nextMove <= 0 || nextMove > 4){
         std::cin >> nextMove;
-        if(nextMove <= 0 || nextMove > 4){
-            std::cout << "ERROR: please pick a given location\n";
-        }
     }
 
     return nextMove;

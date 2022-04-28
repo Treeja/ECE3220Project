@@ -23,14 +23,14 @@ class Object{
         std::vector<std::string> Office_Obj = {"Carrie's Notebook", "Rough Draft", "Pen"};
         std::vector<std::string> Office_Des = {"Carrie's Notebook des", "Rough Draft des", "Pen des"};
 
-        std::vector<std::string> Break_Obj = {"Caffeinated Coffee" };
-        std::vector<std::string> Break_Des = {"Caffeinated Coffee des" };
+        std::vector<std::string> Break_Obj = {"Caffeinated Coffee", "Microwave" };
+        std::vector<std::string> Break_Des = {"Caffeinated Coffee des" "Microwave des"};
 
         std::vector<std::string> Test_Obj = {"Chris's Notebook", "Death Laser", "Decaffeinated Coffee"};
         std::vector<std::string> Test_Des = {"Chris's Notebook des", "Death Laser des", "Decaffeinated Coffee des"};
 
-        std::vector<std::string> Component_Obj = {"Mop Bucket" };
-        std::vector<std::string> Component_Des = {"Mop Bucket des" };
+        std::vector<std::string> Component_Obj = {"Mop Bucket", "Ciruits", "Wrench" };
+        std::vector<std::string> Component_Des = {"Mop Bucket des" "Circuit des", "Wrench des"};
 
         /*
         Test Area: Chris notes, decafe coff, Gary RIP, Note in G pocket,  
