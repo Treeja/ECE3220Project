@@ -64,6 +64,6 @@ std::string Sally::get_descrip(){
     return "Sally is in a very nice, probably expensive suit. Her hair is pulled back and she look mean. He fists are curled up so tight that her knuckles are white. She has a note in her pocket with the word NOTICE visible.\n";
 }
 
-std::string Sally::get_descrip(){
-    return "On Sally you find a note from her employer with details regarding the defunding of the lab. It looks as if they will be stripping down the lab and selling it to Russia\n"
+std::string Sally::search(){
+    return "On Sally you find a note from her employer with details regarding the defunding of the lab. It looks as if they will be stripping down the lab and selling it to Russia\n";
 }
