@@ -33,9 +33,10 @@ int getInput(){
  * 
  * @param context 
  */
-void MoveMenu(Context *context){
+void MoveMenu(Context *context, LocationManager *locManager){
     int choice = 0;
     context->set_strategy(new Move);
+    Node* tmp = new Node();
     do
     {
         std::cout << "\n[Move Menu]\n";
@@ -45,29 +46,38 @@ void MoveMenu(Context *context){
         switch(choice){
             case 1:
                 std::cout << "[Office Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl;
+                delete(tmp);
                 return;
-                break;
             case 2:
                 std::cout << "[Break Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl;
+                delete(tmp);
                 return;
-                break;
             case 3:
                 std::cout << "[Test Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl;
+                delete(tmp);
                 return;
-                break;
             case 4:
                 std::cout << "[Component Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl;
+                delete(tmp);
                 return;
-                break;
             case 5:
                 std::cout << "[Go Back] Chosen!\n";
+                delete(tmp);
                 return;
-                break;
             default:
                 std::cout << "Wrong Choice!\n";
                 break;
         }
     } while (choice != 5);
+    delete(tmp);
     return;
 }
 /**
@@ -205,16 +215,19 @@ void DeclareKillerMenu(Context *context){
 void MainMenuMenu(Context *context){
     int userChoice = 0;
     Object objects;
+    LocationManager *locManager = new LocationManager();
+    locManager->createList();
     do
     {
         context->set_strategy(new MainMenu);
+        std::cout << "CurrentLocation: " << locManager->getCurrentPos() << std::endl;
         std::cout << "What would you like to do?\n";
         context->PrintQuestions();
         userChoice = getInput();
         switch(userChoice){
             case 1:
                 std::cout << "[Move] Chosen!\n";
-                MoveMenu(context);
+                MoveMenu(context, locManager);
                 // Gavin's functions.
                 break;
             case 2:
@@ -238,6 +251,7 @@ void MainMenuMenu(Context *context){
         }
         
     } while (userChoice != 5);
+    delete(locManager);
 }
 
 #endif
