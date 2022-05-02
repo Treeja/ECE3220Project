@@ -44,7 +44,7 @@ struct Node* LocationManager::findNode(Node* head, int n){
         }
         node = node->next;
     }
-    std::cerr << "No such location available!\n";
+    //std::cerr << "No such location available!\n";
     return nullptr;
 }
 

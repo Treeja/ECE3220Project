@@ -26,7 +26,7 @@ struct Node{
 class LocationManager{
     protected:
         struct Node* head = NULL;
-        int currentPosition = -1;
+        int currentPosition = 1;
     public:
         LocationManager();
         ~LocationManager();
