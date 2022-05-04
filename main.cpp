@@ -27,20 +27,20 @@ int main(int argc, char** argv){
     charList[3] = charFac.createHenry();
     charList[4] = charFac.createPeter();
     charList[5] = charFac.createSally();
-    //MainMenuMenu(context, charList);
+    MainMenuMenu(context, charList);
 
     // TEST
-    LocationManager *locationList = new LocationManager();
-    locationList->createList();
-    //locationList->printList(locationList->getHead());
-    Node* temp = locationList->findNode((locationList->getHead()), 4);
-    std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
-    temp = locationList->findNode((locationList->getHead()), 2);
-    std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
-    temp = locationList->findNode((locationList->getHead()), 3);
-    std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
-    temp = locationList->findNode((locationList->getHead()), 1);
-    std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
+    // LocationManager *locationList = new LocationManager();
+    // locationList->createList();
+    // //locationList->printList(locationList->getHead());
+    // Node* temp = locationList->findNode((locationList->getHead()), 4);
+    // std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
+    // temp = locationList->findNode((locationList->getHead()), 2);
+    // std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
+    // temp = locationList->findNode((locationList->getHead()), 3);
+    // std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
+    // temp = locationList->findNode((locationList->getHead()), 1);
+    // std::cout << "TempNode: " << temp->pos_ << "\n CurrentLoc: " << locationList->getCurrentPos() << std::endl;
     
     // EXIT
     delete(context);
