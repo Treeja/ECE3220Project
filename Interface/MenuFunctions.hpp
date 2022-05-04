@@ -69,7 +69,6 @@ void MoveMenu(Context *context, LocationManager *locManager){
     int choice = 0;
     context->set_strategy(new Move);
     Node* tmp = new Node();
-    Clear();
     do
     {
         std::cout << "\n[Move Menu]\n";
@@ -102,7 +101,7 @@ void MoveMenu(Context *context, LocationManager *locManager){
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
                 return;
             case 5:
-                std::cout << "[Go Back] Chosen!\n";
+                Clear();
                 return;
             default:
                 std::cout << "Wrong Choice!\n";
@@ -118,7 +117,6 @@ void MoveMenu(Context *context, LocationManager *locManager){
  */
 void InteractMenu(Context *context, LocationManager *locManager, Character* charList[]){
     int choice = 0;
-    Clear();
     do
     { 
         context->set_strategy(new Interact);
@@ -158,7 +156,6 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
         choice = getInput();
         switch(choice){
             case 1:
-                Clear();
                 context->set_strategy(new Interact_Object);
                 do
                 {
@@ -174,46 +171,44 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                         switch (pos)
                         {
                         case 1:
-                            std::cout << "[Description] Chosen!\n\n Objects in Office Area\n";
+                            std::cout << "\nObjects in Office Area\n";
                             obj->get_object_Off();
                             pick = obj->pickObj(4);
                             obj->get_description_Off(pick);
                             break;
                         case 2:
-                            std::cout << "[Description] Chosen!\n\n Objects in Break Area\n";
+                            std::cout << "\nObjects in Break Area\n";
                             obj->get_object_breakR();
                             pick = obj->pickObj(3);
                             obj->get_description_Break(pick);
                             break;
                         case 3:
-                            std::cout << "[Description] Chosen!\n\n Objects in Test Area\n";
+                            std::cout << "\nObjects in Test Area\n";
                             obj->get_object_test();
                             pick = obj->pickObj(4);
                             obj->get_description_Test(pick);
                             break;
                         case 4:
-                            std::cout << "[Description] Chosen!\n\n Objects in Component Storage\n";
+                            std::cout << "\nObjects in Component Storage\n";
                             obj->get_object_com();
                             pick = obj->pickObj(3);
                             obj->get_description_Com(pick);
                             break;
                         case 5:
-                            std::cout << "[Go Back] Chosen!\n";
                             break;
                         default:
                             break;
                         }
                     case 2:
-                            std::cout << "[Go Back] Chosen!\n";
-                            break;
-                        default:
-                            break;
+                        break;
+                    default:
+                        break;
                     }
                 } while (choice != 2);
+                Clear();
                 break;
             case 2:
                 context->set_strategy(new Interact_NPC);
-                Clear();
                 do
                 {
                     std::cout << "\n[Interact NPC Menu]\n";
@@ -223,8 +218,10 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     }
                     std::cout <<"(" << availableCharacters.size()+1 << ") Go Back\n";
                     int ChosenNPC = getInput();
-                    if(ChosenNPC == availableCharacters.size()+1)
+                    if(ChosenNPC == availableCharacters.size()+1){
+                        Clear();
                         return;
+                    }
                     if(ChosenNPC == availableCharacters.size()+2)
                         std::cout << "Wrong input!\n";
                     std::cout << "What would you like to do?\n";
@@ -253,6 +250,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                         std::cout<<"\n\n";
                         break;
                     case 4:
+                        Clear();
                         return;
                     default:
                         std::cout << "Wrong Choice!\n";
@@ -261,6 +259,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                 } while (NPCchoice != 4);
                 break;
             case 3:
+                Clear();
                 return;
             default:
                 std::cout << "Wrong input!\n";
@@ -319,27 +318,30 @@ void MainMenuMenu(Context *context, Character* charList[]){
     int userChoice = 0;
     Object objects;
     LocationManager *locManager = new LocationManager();
-    
+    Clear();
     locManager->createList();
     do
     {
-        Clear();
         context->set_strategy(new MainMenu);
         std::cout << "What would you like to do?\n";
         context->PrintQuestions();
         userChoice = getInput();
         switch(userChoice){
             case 1:
+                Clear();
                 MoveMenu(context, locManager);
                 // Gavin's functions.
                 break;
             case 2:
+                Clear();
                 InteractMenu(context, locManager, charList); // The questions for NPCs depend on where you are
                 break;
             case 3:
+                Clear();
                 DeclareKillerMenu(context);
                 break;
             case 4:
+                Clear();
                 std::cout << "Goodbye!\n";
                 break;
             default:
