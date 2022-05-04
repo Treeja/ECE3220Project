@@ -50,52 +50,66 @@ class Object{
         Office Area: Carries notes, Henry, Rough Draft, 
         */
     public:
+        int pickObj(int limit){
+            int result=0;
+            while(result < limit){
+                std::cout << "Which object would you like to pick?\n";
+                std::cin >> result;
+                if(result<limit){
+                    return result;
+                }
+                if(result >= limit){
+                    std::cout << "Please try again!\n";
+                }
+            }
+            return result;
+        }
         void get_object_Off(){
             for(int i=1; i<office.size()+1; i++){
-                std::cout << i << ") " << office.at(i).front() << std::endl;
+                std::cout << "(" << i << ") " << office.at(i).front() << std::endl;
             }
         }
 
         void get_object_breakR(){
             for(int i=1; i<breakR.size()+1; i++){
-                std::cout << i << ") " << breakR.at(i).front() << std::endl;
+                std::cout << "(" << i << ") " << breakR.at(i).front() << std::endl;
             }
         }
 
         void get_object_test(){
             for(int i=1; i<test.size()+1; i++){
-                std::cout << i << ") " << test.at(i).front() << std::endl;
+                std::cout << "(" << i << ") " << test.at(i).front() << std::endl;
             }
         }
 
         void get_object_com(){
             for(int i=1; i<component.size()+1; i++){
-                std::cout << i << ") " << component.at(i).front() << std::endl;
+                std::cout << "(" << i << ") " << component.at(i).front() << std::endl;
             }
         }
 
         void get_description_Off(int object){
             std::map<int, std::vector<std::string>>::iterator iter;
             iter = office.find(object);
-            std::cout << (iter->second).at(1) << std::endl;
+            std::cout << "\n" << (iter->second).at(1) << std::endl;
         }
 
         void get_description_Break(int object){
             std::map<int, std::vector<std::string>>::iterator iter;
             iter = breakR.find(object);
-            std::cout << (iter->second).at(1) << std::endl;
+            std::cout << "\n" << (iter->second).at(1) << std::endl;
         }
 
         void get_description_Test(int object){
             std::map<int, std::vector<std::string>>::iterator iter;
             iter = test.find(object);
-            std::cout << (iter->second).at(1) << std::endl;
+            std::cout << "\n" << (iter->second).at(1) << std::endl;
         }
 
         void get_description_Com(int object){
             std::map<int, std::vector<std::string>>::iterator iter;
             iter = component.find(object);
-            std::cout << (iter->second).at(1) << std::endl;
+            std::cout << "\n" << (iter->second).at(1) << std::endl;
         }
 };
 

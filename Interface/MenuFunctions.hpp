@@ -147,6 +147,8 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                 context->set_strategy(new Interact_Object);
                 do
                 {
+                    Object* obj = new Object;
+                    int pick = 0;
                     std::cout << "\n[Interact Object Menu]\n";
                     std::cout << "What would you like to do?\n";
                     context->PrintQuestions();
@@ -154,13 +156,40 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     switch (choice)
                     {
                     case 1:
-                        std::cout << "[Inspect Object] Chosen!\n";
-                        break;
+                        switch (pos)
+                        {
+                        case 1:
+                            std::cout << "[Description] Chosen!\n\n Objects in Office Area\n";
+                            obj->get_object_Off();
+                            pick = obj->pickObj(4);
+                            obj->get_description_Off(pick);
+                            break;
+                        case 2:
+                            std::cout << "[Description] Chosen!\n\n Objects in Break Area\n";
+                            obj->get_object_breakR();
+                            pick = obj->pickObj(3);
+                            obj->get_description_Break(pick);
+                        case 3:
+                            std::cout << "[Description] Chosen!\n\n Objects in Test Area\n";
+                            obj->get_object_test();
+                            pick = obj->pickObj(4);
+                            obj->get_description_Test(pick);
+                        case 4:
+                            std::cout << "[Description] Chosen!\n\n Objects in Component Storage\n";
+                            obj->get_object_com();
+                            pick = obj->pickObj(3);
+                            obj->get_description_Com(pick);
+                        case 5:
+                            std::cout << "[Go Back] Chosen!\n";
+                            break;
+                        default:
+                            break;
+                        }
                     case 2:
-                        std::cout << "[Go Back] Chosen!\n";
-                        break;
-                    default:
-                        break;
+                            std::cout << "[Go Back] Chosen!\n";
+                            break;
+                        default:
+                            break;
                     }
                 } while (choice != 2);
                 break;
