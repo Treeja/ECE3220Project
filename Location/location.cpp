@@ -70,11 +70,12 @@ void Location::printList(Location* node)
 }
 
 Location* Location::move(Location* head_ref, int num){
-    //std::cout << head_ref->area << std::endl;
     //std::cout << "Node Before:" << head_ref->node_ << std::endl;
+    //std::cout << head_ref->area << std::endl;
     node_ = head_ref->node_;
 
     while(node_ < num){
+        std::cout << "Node During:" << node_ << std::endl;
         head_ref = head_ref->next;
         node_ = node_ + 1;
     }
@@ -88,6 +89,8 @@ Location* Location::move(Location* head_ref, int num){
         node_ = node_ - 1;
         //std::cout << node_ << std::endl;
     }
+    //std::cout << head_ref->area << std::endl;
+    //std::cout << "Node after:" << head_ref->node_ << std::endl;
     head_ref->node_ = node_;
     //std::cout <<  "Node after backward:" << head_ref->node_ << std::endl;
     
@@ -105,15 +108,10 @@ Location* Location::start(Location* head_ref){
 
 int Location::nextPoint(Location* head_ref){
     int nextMove = -1;
-    std::cout << "Where would you like to move next?\n" << "Please type in number of place you would like to move.\n" 
-    << "1) Office Area\n2) Break Area\n3) Test Area\n4) Component Storage\n";
     
     //User can pick next location only if it is a given option
     while(nextMove <= 0 || nextMove > 4){
         std::cin >> nextMove;
-        if(nextMove <= 0 || nextMove > 4){
-            std::cout << "ERROR: please pick a given location\n";
-        }
     }
 
     return nextMove;

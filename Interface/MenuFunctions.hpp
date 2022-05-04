@@ -33,9 +33,11 @@ int getInput(){
  * 
  * @param context 
  */
-void MoveMenu(Context *context, Location *head){
+void MoveMenu(Context *context){
     int choice = 0;
     context->set_strategy(new Move);
+    Location* head = nullptr;
+    head = head->start(head);
     do
     {
         std::cout << "\n[Move Menu]\n";
@@ -45,13 +47,13 @@ void MoveMenu(Context *context, Location *head){
         switch(choice){
             case 1:
                 std::cout << "[Office Area] Chosen!\n";
-                *head = *head->move(head,1);
+                head = head->move(head,1);
                 head->description(head);
                 return;
                 break;
             case 2:
                 std::cout << "[Break Area] Chosen!\n";
-                *head = *head->move(head,2);
+                head = head->move(head,2);
                 head->description(head);
                 return;
                 break;
@@ -63,7 +65,7 @@ void MoveMenu(Context *context, Location *head){
                 break;
             case 4:
                 std::cout << "[Component Area] Chosen!\n";
-                head = head->move(head,3);
+                head = head->move(head,4);
                 head->description(head);
                 return;
                 break;
@@ -224,7 +226,7 @@ void MainMenuMenu(Context *context){
         switch(userChoice){
             case 1:
                 std::cout << "[Move] Chosen!\n";
-                MoveMenu(context, head);
+                MoveMenu(context);
                 // Gavin's functions.
                 break;
             case 2:

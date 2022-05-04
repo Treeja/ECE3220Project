@@ -20,17 +20,28 @@
 class Object{ 
     private: 
         // initialize this with the corresponding object string associated with each object.
-        std::vector<std::string> Office_Obj = {"Carrie's Notebook", "Rough Draft", "Pen"};
-        std::vector<std::string> Office_Des = {"Carrie's Notebook des", "Rough Draft des", "Pen des"};
+        std::map<int, std::vector<std::string>> office = {
+            {1, {"Carrie's Notebook", "Notebook is filled with good quailty data from death laser."}},
+            {2, {"Rough Draft", "Newest rough draft according to date. Has very little sign of Gary's work."}},
+            {3, {"Pen", "Slightly bloody, running low on ink."}}
+        };
+       
+        std::map<int, std::vector<std::string>> breakR = {
+            {1, {"Caffeinated Coffee", "Is now cooled and filled with decaffeinated coffee."}},
+            {2, {"Microwave", "Has food in it that has recently been warmed up."}},
+        };
 
-        std::vector<std::string> Break_Obj = {"Caffeinated Coffee" };
-        std::vector<std::string> Break_Des = {"Caffeinated Coffee des" };
+        std::map<int, std::vector<std::string>> test = {
+            {1, {"Chris's Notebook", "Contains line after line of 'Writing this to look busy'."}},
+            {2, {"Death Laser", "Cooling pops can be heard as if it was recently fired. Also appears to be some cut wires on the side."}},
+            {3, {"Decaffeinated Coffee", "Half empty and cooled off by this point"}}
+        };
 
-        std::vector<std::string> Test_Obj = {"Chris's Notebook", "Death Laser", "Decaffeinated Coffee"};
-        std::vector<std::string> Test_Des = {"Chris's Notebook des", "Death Laser des", "Decaffeinated Coffee des"};
-
-        std::vector<std::string> Component_Obj = {"Mop Bucket" };
-        std::vector<std::string> Component_Des = {"Mop Bucket des" };
+        std::map<int, std::vector<std::string>> component = {
+            {1, {"Mop Bucket", "Dirty water with a tint of red"}},
+            {2, {"Circuits", "You notice one circuit had blown components. (Maybe from where Gary burnt his fingers after shorting a circuit?)"}},
+            {3, {"Wrench", "Squeaky clean. Little damp."}}
+        };
 
         /*
         Test Area: Chris notes, decafe coff, Gary RIP, Note in G pocket,  
@@ -38,64 +49,30 @@ class Object{
         Break Area: Carrie, cafe coff, Sally,
         Office Area: Carries notes, Henry, Rough Draft, 
         */
-        std::map<std::string,std::string> Office_map;
-        std::map<std::string,std::string> Break_map;
-        std::map<std::string,std::string> Test_map;
-        std::map<std::string,std::string> Component_map; // This stores a look up table for the each morse code character
     public:
-        void generate_object_map(int area){
-            if(area == 1){
-                for(int i=0; i<=Office_Obj.size(); i++){
-                    Office_map[Office_Obj[i]] = Office_Des[i];
-                }
-            }
-            if(area == 2){
-                for(int i=0; i<=Break_Obj.size(); i++){
-                    Break_map[Break_Obj[i]] = Break_Des[i];
-                }
-            }
-            if(area == 3){
-                for(int i=0; i<=Test_Obj.size(); i++){
-                    Test_map[Test_Obj[i]] = Test_Des[i];
-                }
-            }
-            if(area == 4){
-                for(int i=0; i<=Component_Obj.size(); i++){
-                    Component_map[Component_Obj[i]] = Component_Des[i];
-                }
-            }
+
+        void get_description_Off(int object){
+            std::map<int, std::vector<std::string>>::iterator iter;
+            iter = office.find(object);
+            std::cout << (iter->second).at(1) << std::endl;
         }
 
-        void get_description_Off(std::string text){
-            std::map<std::string, std::string>::iterator iter;
-            iter = Office_map.find(text);
-            if(text == iter->first){
-                std::cout << iter->second << std::endl;
-            }
+        void get_description_Break(int object){
+            std::map<int, std::vector<std::string>>::iterator iter;
+            iter = breakR.find(object);
+            std::cout << (iter->second).at(1) << std::endl;
         }
 
-        void get_description_Break(std::string text){
-            std::map<std::string, std::string>::iterator iter;
-            iter = Break_map.find(text);
-            if(text == iter->first){
-                std::cout << iter->second << std::endl;
-            }
+        void get_description_Test(int object){
+            std::map<int, std::vector<std::string>>::iterator iter;
+            iter = test.find(object);
+            std::cout << (iter->second).at(1) << std::endl;
         }
 
-        void get_description_Test(std::string text){
-            std::map<std::string, std::string>::iterator iter;
-            iter = Test_map.find(text);
-            if(text == iter->first){
-                std::cout << iter->second << std::endl;
-            }
-        }
-
-        void get_description_Compon(std::string text){
-            std::map<std::string, std::string>::iterator iter;
-            iter = Component_map.find(text);
-            if(text == iter->first){
-                std::cout << iter->second << std::endl;
-            }
+        void get_description_Com(int object){
+            std::map<int, std::vector<std::string>>::iterator iter;
+            iter = component.find(object);
+            std::cout << (iter->second).at(1) << std::endl;
         }
 };
 
