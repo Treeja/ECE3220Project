@@ -29,6 +29,9 @@ class Location
         Location* start(Location* head_ref); 
         int nextPoint(Location* head_ref);
         void description(Location* head_ref);
+        int getNode(){
+            return node_;
+        };
 
 };
 
