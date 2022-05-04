@@ -108,7 +108,7 @@ class Interact : public Strategy{
 class Interact_Object : public Strategy{
     protected:
         std::map<int, std::string> questions = {
-            {1, "(1) Inspect Object"},
+            {1, "(1) Get Object Descriptions"},
             {2, "(2) Go Back"}
         };
     public:
