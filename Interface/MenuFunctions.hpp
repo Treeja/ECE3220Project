@@ -50,9 +50,9 @@ void MoveMenu(Context *context, LocationManager *locManager){
     int choice = 0;
     context->set_strategy(new Move);
     Node* tmp = new Node();
+    Clear();
     do
     {
-        Clear();
         std::cout << "\n[Move Menu]\n";
         std::cout << "Where would you like to move to?\n";
         context->PrintQuestions();
@@ -99,6 +99,7 @@ void MoveMenu(Context *context, LocationManager *locManager){
  */
 void InteractMenu(Context *context, LocationManager *locManager, Character* charList[]){
     int choice = 0;
+    Clear();
     do
     { 
         context->set_strategy(new Interact);
@@ -132,19 +133,18 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
         }
         int NPCchoice = 0; // The user choice for what to do in NPC land
         int questionChoice = 0; // user choice for what question to ask NPC
-        Clear();
         std::cout << "\n[Interact Menu]\n";
         std::cout << "What would you like to do?\n";
         context->PrintQuestions();
         choice = getInput();
         switch(choice){
             case 1:
+                Clear();
                 context->set_strategy(new Interact_Object);
                 do
                 {
                     Object* obj = new Object;
                     int pick = 0;
-                    Clear();
                     std::cout << "\n[Interact Object Menu]\n";
                     std::cout << "What would you like to do?\n";
                     context->PrintQuestions();
@@ -194,9 +194,9 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                 break;
             case 2:
                 context->set_strategy(new Interact_NPC);
+                Clear();
                 do
                 {
-                    Clear();
                     std::cout << "\n[Interact NPC Menu]\n";
                     std::cout << "Who would you like to interact with?\n";
                     for (int i = 1; i < availableCharacters.size()+1; i++){
@@ -211,8 +211,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     std::cout << "What would you like to do?\n";
                     context->PrintQuestions();
                     NPCchoice = getInput();
-                    switch (NPCchoice)
-                    {
+                    switch (NPCchoice){
                     case 1:
                         std::cout << availableCharacters.at(ChosenNPC).second->get_descrip();
                         break;
@@ -293,6 +292,7 @@ void MainMenuMenu(Context *context, Character* charList[]){
     locManager->createList();
     do
     {
+        Clear();
         context->set_strategy(new MainMenu);
         std::cout << "What would you like to do?\n";
         context->PrintQuestions();
