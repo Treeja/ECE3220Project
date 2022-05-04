@@ -34,46 +34,44 @@ int getInput(){
  * 
  * @param context 
  */
-void MoveMenu(Context *context, Location* head){
+void MoveMenu(Context *context, LocationManager *locManager){
     int choice = 0;
     context->set_strategy(new Move);
-    // Location* head = nullptr;
-    // head = head->start(head);
+    Node* tmp = new Node();
     do
     {
         std::cout << "\n[Move Menu]\n";
         std::cout << "Where would you like to move to?\n";
         context->PrintQuestions();
         choice = getInput();
+        if(choice == locManager->getCurrentPos()){
+            std::cout << "You are currently there!\n";
+            return;
+        }
         switch(choice){
             case 1:
-                std::cout << "[Office Area] Chosen!\n";
-                head = head->move(head,1);
-                head->description(head);
+                std::cout << std::endl;//"[Office Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
                 return;
-                break;
             case 2:
-                std::cout << "[Break Area] Chosen!\n";
-                head = head->move(head,2);
-                head->description(head);
+                std::cout << std::endl;//"[Break Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
                 return;
-                break;
             case 3:
-                std::cout << "[Test Area] Chosen!\n";
-                head = head->move(head,3);
-                head->description(head);
+                std::cout << std::endl;//"[Test Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
                 return;
-                break;
             case 4:
-                std::cout << "[Component Area] Chosen!\n";
-                head = head->move(head,4);
-                head->description(head);
+                std::cout << std::endl;//"[Component Area] Chosen!\n";
+                tmp = locManager->findNode(locManager->getHead(),choice);
+                std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
                 return;
-                break;
             case 5:
                 std::cout << "[Go Back] Chosen!\n";
                 return;
-                break;
             default:
                 std::cout << "Wrong Choice!\n";
                 break;
@@ -86,13 +84,13 @@ void MoveMenu(Context *context, Location* head){
  * 
  * @param context 
  */
-void InteractMenu(Context *context, Character* charList[], Location* head){
-    int choice = 0; // Main interat menu user choice
+void InteractMenu(Context *context, LocationManager *locManager, Character* charList[]){
+    int choice = 0;
     do
     { 
         context->set_strategy(new Interact);
         DialogueDecision *dia = new DialogueDecision();
-        int pos = head->getNode();
+        int pos = locManager->getCurrentPos();
         std::map<int, std::pair<std::string, Character*>> availableCharacters = {};
         // This switch decides what NPCs will be available depending on the location
         switch (pos)
@@ -178,6 +176,7 @@ void InteractMenu(Context *context, Character* charList[], Location* head){
                     }
                     int ChosenNPC = getInput();
                     std::cout << "What would you like to do?\n";
+
                     context->PrintQuestions();
                     NPCchoice = getInput();
                     switch (NPCchoice)
@@ -267,24 +266,26 @@ void DeclareKillerMenu(Context *context){
 
 void MainMenuMenu(Context *context, Character* charList[]){
     int userChoice = 0;
-    Location* head = nullptr;
     Object objects;
+    LocationManager *locManager = new LocationManager();
+    
+    locManager->createList();
     do
     {
-        head = head->start(head);
         context->set_strategy(new MainMenu);
+        std::cout << "CurrentLocation: " << locManager->getCurrentPos() << std::endl;
         std::cout << "What would you like to do?\n";
         context->PrintQuestions();
         userChoice = getInput();
         switch(userChoice){
             case 1:
                 std::cout << "[Move] Chosen!\n";
-                MoveMenu(context, head);
+                MoveMenu(context, locManager);
                 // Gavin's functions.
                 break;
             case 2:
                 std::cout << "[Interact] Chosen!\n";
-                InteractMenu(context, charList, head);
+                InteractMenu(context, locManager, charList); // The questions for NPCs depend on where you are
                 break;
             case 3:
                 std::cout << "[Inventory] Chosen!\n";
@@ -303,6 +304,7 @@ void MainMenuMenu(Context *context, Character* charList[]){
         }
         
     } while (userChoice != 5);
+    delete(locManager);
 }
 
 #endif
