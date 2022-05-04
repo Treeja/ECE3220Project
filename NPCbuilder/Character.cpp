@@ -24,5 +24,5 @@ std::string Character::get_descrip(){
 }
 
 std::string Character::search(){
-    return "Base Class Invoked"
+    return "Base Class Invoked";
 }

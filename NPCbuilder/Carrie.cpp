@@ -15,7 +15,6 @@ Carrie::Carrie() : Character(){}
 
 //Dialogue Choices for Carrie, three questions max can be answered by her. Exhasution variable prevents more
 std::string Carrie::get_dialogue(int choice){
-
     if(exhaustion_ < 3){  
         switch (choice)
         {
