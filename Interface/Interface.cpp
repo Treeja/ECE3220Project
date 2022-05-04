@@ -66,15 +66,6 @@ void Interact_Object::PrintQuestions(){
     }
 }
 
-Inventory::Inventory(){}
-Inventory::~Inventory(){}
-void Inventory::PrintQuestions(){
-    for (int i = 1; i < questions.size()+1; i++)
-    {
-        std::cout << questions.at(i) << std::endl;
-    }
-}
-
 DeclareKiller::DeclareKiller(){}
 DeclareKiller::~DeclareKiller(){}
 void DeclareKiller::PrintQuestions(){
