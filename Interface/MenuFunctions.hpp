@@ -212,35 +212,6 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
     return;
 }
 
-/**
- * @brief Menu for Inventory
- * 
- * @param context 
- */
-void InventoryMenu(Context *context){
-    int choice = 0;
-    context->set_strategy(new Inventory);
-    do
-    {
-        std::cout << "\n[Inventory Menu]\n";
-        std::cout << "What would you like to do?\n";
-        context->PrintQuestions();
-        choice = getInput();
-        switch (choice)
-        {
-        case 1:
-            std::cout << "[View Notes] Chosen!\n";
-            break;
-        case 2:
-            std::cout << "[Go Back] Chosen!\n";
-        default:
-            std::cout << "Wrong Input!\n";
-            break;
-        }
-    } while (choice != 2);
-    return;
-}
-
 //endgame written prose if you guess the correct killer
 void endgameCorrect(){
     std::cout<<"You gather everyone into the test area. Gary is still lying there the blood pool is even bigger than it was before\n\n You look around and don't see Peter amoung the group, you quietly inform everyone that you believe Peter is the killer. Just as you do this you hear the Death Laser power on and rotate toward you and the others.\n\n Peter has a menacing look on his face and his finger in on the trigger of the Death Laser. He exclaims 'Well, well you figured it out. I never thought anyone would expect the lowly janitor. I am tired of cleaning up after you reckless slobs. Gary was the worst, coffee spills on the floor, componets all over the desks, exposed wires always left open. I didn't think anyone would think twice about him 'accidently' shocking himself, so I cut the wires he was working on when he wasn't looking. That didn't work though it just gave him a little shock and caused the lights to go out. While he was on the ground I hit him with my mop and did my best to clean up any blood in the area then ran over the the component storage before the emergency lights kicked on.'\n\n 'I can't have any witnesses...'\n\n'You all have to die!'\n\n As Peter pulled the trigger the lights kicked back on. The police entered the room. You immediatly hear a gunshot and see Peter laying on the ground...he's dead\n\n";
