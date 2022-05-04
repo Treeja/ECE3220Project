@@ -66,12 +66,10 @@ class MainMenu : public Strategy{
         std::map<int, std::string> questions = {
             {1, "(1) Move"},
             {2, "(2) Interact"},
-            {3, "(3) Inventory"},
-            {4, "(4) Declare Killer"},
-            {5, "(5) Exit game"}
+            {3, "(3) Declare Killer"},
+            {4, "(4) Exit game"}
         };
     public:
-        // Make sure this works calling the base function, as this function shouldn't change for any of the classes but still needs to be available
         MainMenu();
         ~MainMenu() override;
         void PrintQuestions() override;
@@ -135,18 +133,6 @@ class Interact_Hol : public Strategy{
         ~Interact_Hol() override;
         void PrintQuestions() override;
 };
-class Inventory : public Strategy{
-    protected:
-        std::map<int, std::string> questions = {
-            {1, "(1) View Notes"},
-            {2, "(2) Go Back"}
-        };
-    public:
-        Inventory();
-        ~Inventory() override;
-        void PrintQuestions() override;
-};
-
 class DeclareKiller : public Strategy{
     protected:
         std::map<int, std::string> questions = {
