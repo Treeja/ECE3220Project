@@ -189,8 +189,16 @@ void DeclareKillerMenu(Context *context){
     std::cout <<"(1) Yes\n(2) No\n";
     int choice = getInput();
     if(choice == 1){
-        std::cout << "Kill! Kill! Kill!\n";
-        return;
+        std::cout << "Who would you like to accuse?\n";
+        std::cout << "(1) Carrie\n(2) Chris\n(3) Gary\n(4) Henry\n(5) Peter\n(6) Sally\n";
+        int killerChoice = getInput();
+        if(killerChoice == 6){
+            endgameCorrect()
+        }
+        else{
+            endgameWrong();
+        }
+        
     } else if (choice == 2){
         std::cout << "No Kill! No Kill! No Kill!\n";
         return;
@@ -236,6 +244,17 @@ void MainMenuMenu(Context *context){
         }
         
     } while (userChoice != 5);
+}
+
+//endgame written prose if you guess the correct killer
+void endgameCorrect(){
+    std::cout<<"You gather everyone into the test area. Gary is still lying there the blood pool is even bigger than it was before\n\n You look around and don't see Peter amoung the group, you quietly inform everyone that you believe Peter is the killer. Just as you do this you hear the Death Laser power on and rotate toward you and the others.\n\n Peter has a menacing look on his face and his finger in on the trigger of the Death Laser. He exclaims 'Well, well you figured it out. I never thought anyone would expect the lowly janitor. I am tired of cleaning up after you reckless slobs. Gary was the worst, coffee spills on the floor, componets all over the desks, exposed wires always left open. I didn't think anyone would think twice about him 'accidently' shocking himself, so I cut the wires he was working on when he wasn't looking. That didn't work though it just gave him a little shock and caused the lights to go out. While he was on the ground I hit him with my mop and did my best to clean up any blood in the area then ran over the the component storage before the emergency lights kicked on.'\n\n 'I can't have any witnesses...'\n\n'You all have to die!'\n\n As Peter pulled the trigger the lights kicked back on. And the police entered the room. You immediatly hear a gunshot and see Peter laying on the ground...he's dead\n\n";
+
+    std::cout<<"Thank you for playing!"<<std::endl;
+}
+
+void endgameWrong(){
+
 }
 
 #endif
