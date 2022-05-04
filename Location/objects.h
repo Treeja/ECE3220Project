@@ -50,6 +50,29 @@ class Object{
         Office Area: Carries notes, Henry, Rough Draft, 
         */
     public:
+        void get_object_Off(){
+            for(int i=1; i<office.size()+1; i++){
+                std::cout << i << ") " << office.at(i).front() << std::endl;
+            }
+        }
+
+        void get_object_breakR(){
+            for(int i=1; i<breakR.size()+1; i++){
+                std::cout << i << ") " << breakR.at(i).front() << std::endl;
+            }
+        }
+
+        void get_object_test(){
+            for(int i=1; i<test.size()+1; i++){
+                std::cout << i << ") " << test.at(i).front() << std::endl;
+            }
+        }
+
+        void get_object_com(){
+            for(int i=1; i<component.size()+1; i++){
+                std::cout << i << ") " << component.at(i).front() << std::endl;
+            }
+        }
 
         void get_description_Off(int object){
             std::map<int, std::vector<std::string>>::iterator iter;
