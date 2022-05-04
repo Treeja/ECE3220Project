@@ -13,7 +13,7 @@
 #define PLAYERNOTEBOOK_H
 
 #include "tinyxml2.h"
-#include "tixml2ex.h"
+//#include "tixml2ex.h"
 #include <iostream>
 
 class PlayerNotebook{
