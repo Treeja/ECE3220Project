@@ -282,9 +282,26 @@ void endgameCorrect(){
     exit(0);
 }
 
-void endgameWrong(){
+void endgameWrong(std::string character){
 
-    return;
+    Clear();
+    std::string gender;
+    std::string gender2;
+    if(character == "Carrie" || character == "Sally"){
+        gender = "her";
+        gender2 = "her";
+    }
+    else{
+        gender = "him";
+        gender2 = "his";
+    }
+    std::string in = "You gather everyone in the test area, point at " + character + " and exclaim '" + character +" did it.' The group quickly looks at " + character + " and grabs " +gender+  ". " +character+ " wrestles the group screaming 'It wasn't me it wasn't me!' As " +character+ " fights for " +gender2+ " life the lights quickly flash on and the police enter the room. They quickly detain " +character+ " and lead " +gender+ " away, patting you on the back saying job well done. " +character+ " is going to be in prison for a long long time. As the commotion dies down the police interview everyone, everyone's story matches up and it is a closed case. You are one of the last to leave the building, other than Peter who is cleaning up. As you are leaving you see Peter clutching a wrentch and hear him lightly say 'That was all to easy'.....\n\n";
+    wrap(in,100, std::cout, 0);
+
+    std::cout<<"\nThank you for playing!\n";
+
+
+    exit(0);
 
 }
 
@@ -301,11 +318,11 @@ void DeclareKillerMenu(Context *context){
             endgameCorrect();
         }
         else{
-            endgameWrong();
+            std::string characters[6] = {"Carrie", "Chris", "Gary", "Henry", "Peter", "Sally"};
+            endgameWrong(characters[killerChoice-1]);
         }
         
     } else if (choice == 2){
-        std::cout << "No Kill! No Kill! No Kill!\n";
         return;
     } else {
         std::cout << "Wrong Choice, try again later!";
