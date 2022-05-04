@@ -165,16 +165,19 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                             obj->get_object_breakR();
                             pick = obj->pickObj(3);
                             obj->get_description_Break(pick);
+                            break;
                         case 3:
                             std::cout << "[Description] Chosen!\n\n Objects in Test Area\n";
                             obj->get_object_test();
                             pick = obj->pickObj(4);
                             obj->get_description_Test(pick);
+                            break;
                         case 4:
                             std::cout << "[Description] Chosen!\n\n Objects in Component Storage\n";
                             obj->get_object_com();
                             pick = obj->pickObj(3);
                             obj->get_description_Com(pick);
+                            break;
                         case 5:
                             std::cout << "[Go Back] Chosen!\n";
                             break;
