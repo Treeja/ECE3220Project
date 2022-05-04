@@ -25,6 +25,9 @@ Who do you think killed Gary?
 
 //Dialogue Options for Sally, Max 3 controlled by exhaustion variable
 std::string Sally::get_dialogue(int choice){
+    if(exhaustion_>3)
+        exhaustion_ = 0;
+        
     if(exhaustion_ < 3){  
         switch (choice)
         {

@@ -15,6 +15,9 @@ Chris::Chris() : Character(){}
 
 //Dialogue for Chris. Can as a max of 3 questions tracked by exhaustion variable
 std::string Chris::get_dialogue(int choice){
+    if(exhaustion_>3)
+        exhaustion_ = 0;
+        
     if(exhaustion_ < 3){  
         switch (choice)
         {

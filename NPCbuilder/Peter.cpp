@@ -25,6 +25,9 @@ Peter::Peter() : Character(){}
 
 //Dialogue for Peter, Max 3 questions controlled by exhaustion variable
 std::string Peter::get_dialogue(int choice){
+    if(exhaustion_>3)
+        exhaustion_ = 0;
+        
     if(exhaustion_ < 3){  
         switch (choice)
         {

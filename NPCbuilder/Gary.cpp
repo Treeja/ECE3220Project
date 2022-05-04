@@ -14,6 +14,9 @@
 Gary::Gary() : Character(){}
 
 std::string Gary::get_dialogue(int choice){
+    if(exhaustion_>3)
+        exhaustion_ = 0;
+        
     return "He's dead, what did you expect from this?\n";
 }
 
