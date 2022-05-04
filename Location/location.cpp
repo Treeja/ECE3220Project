@@ -1,137 +1,121 @@
 /**
  * @file location.cpp
- * @author Gavin Stoddard (gjsfp3@umsystem.edu)
+ * @author Gavin Stoddard (gjsfp3@umsystem.edu) Revision by Sam Bealmer (sjbhyf@umsystem.edu)
  * @brief 
- * @version 0.1
+ * @version 2
  * @date 2022-04-19
  * 
  * @copyright Copyright (c) 2022
  * 
  */
 #include "location.h"
+/**
+ * @brief Construct a new Location Manager:: Location Manager object
+ * In reality, makes an empty list.
+ * 
+ */
+LocationManager::LocationManager(){}
+/**
+ * @brief Destroy the Location Manager:: Location Manager object
+ * 
+ */
+LocationManager::~LocationManager(){
+    Node* temp = new Node();
+    while(head != NULL){
+        temp = head;
+        head = head->next;
+        delete(temp);
+    }
+}
 
-void Location::append(Location** head_ref, std::string newArea)
-{ 
-    /*allocate node */
-    Location* new_node = new Location();
- 
-    Location* last = *head_ref; /* used in step 5*/
- 
-    /*put in the data */
-    new_node->area = newArea;
- 
-    /*This new node is going to be the last node, so
-        make next of it as NULL*/
-    new_node->next = NULL;
- 
-    /*If the Linked List is empty, then make the new
-        node as head */
-    if (*head_ref == NULL)
-    {
-        new_node->prev = NULL;
-        *head_ref = new_node;
+/**
+ * @brief Returns a pointer to the node searched for in the list
+ * 
+ * @param head Reference to the head node [Usually done through getHead()]
+ * @param n nth position of node searching for
+ * @return struct Node* 
+ */
+struct Node* LocationManager::findNode(Node* head, int n){
+    Node *node = head;
+    while(node != nullptr){
+        if(node->pos_ == n){
+            currentPosition = node->pos_;
+            return node;
+        }
+        node = node->next;
+    }
+    //std::cerr << "No such location available!\n";
+    return nullptr;
+}
+
+/**
+ * @brief Returns head
+ * 
+ * @return Node* 
+ */
+Node* LocationManager::getHead(){
+    return head;
+}
+
+/**
+ * @brief Returns current position
+ * 
+ * @return int 
+ */
+int LocationManager::getCurrentPos(){
+    return currentPosition;
+}
+
+/**
+ * @brief Inserts a node at the end of the dll
+ * 
+ * @param head Reference to the head. Can be double ref because this is only really used internally
+ * @param pos int position value of new node
+ * @param areaName Data
+ * @param areaDescription Data 
+ */
+void LocationManager::insert_end(Node** head, int pos, std::string areaName, std::string areaDescription){
+    struct Node* newNode = new Node;
+    struct Node* last = *head;
+    newNode->pos_ = pos;
+    newNode->areaName_ = areaName;
+    newNode->areaDescription_ = areaDescription;
+    newNode->next = NULL;
+    if (*head == NULL){
+        newNode->prev= NULL;
+        *head = newNode;
         return;
     }
- 
-    /*Else traverse till the last node */
     while (last->next != NULL)
         last = last->next;
- 
-    /*Change the next of last node */
-    last->next = new_node;
- 
-    /*Make last node as previous of new node */
-    new_node->prev = last;
- 
+
+    last->next = newNode;
+    newNode->prev = last;
     return;
 }
 
-void Location::printList(Location* node)
-{
-    Location* last;
-    //std::cout<<"\nTraversal in forward direction \n";
-    while (node != NULL)
-    {
-        std::cout<<"Area: "<<node->area<< std::endl;
-        last = node;
-        node = node->next;
+/**
+ * @brief Prints the list, starting at pointer to given node [Usually the head]
+ * 
+ * @param head Node to start printing list at
+ */
+void LocationManager::printList(Node* head){
+    Node* last = head;
+    while (last != NULL){
+        std::cout << "\nPosition: " << last->pos_ << "\nareaName: " << last->areaName_ << "\nareaDesc: " << last->areaDescription_ << "\n^v";
+        last = last->next;
     }
- 
-    //std::cout<<"\nTraversal in reverse direction \n";
-    while (last != NULL)
-    {
-        std::cout<<" "<<last->area<<" ";
-        last = last->prev;
-    }
-    if(last == NULL)
-    {
-        std::cout << std::endl;
-    }
+    if(head == NULL)
+        std::cout << "NULL";
 }
 
-Location* Location::move(Location* head_ref, int num){
-    //std::cout << "Node Before:" << head_ref->node_ << std::endl;
-    //std::cout << head_ref->area << std::endl;
-    node_ = head_ref->node_;
-
-    while(node_ < num){
-        std::cout << "Node During:" << node_ << std::endl;
-        head_ref = head_ref->next;
-        node_ = node_ + 1;
-    }
-    head_ref->node_ = node_;
-    //std::cout <<  "Node after forward:" << head_ref->node_ << std::endl;
-
-    //std::cout << head_ref->area << std::endl;
-
-    while(node_ > num){
-        head_ref = head_ref->prev;
-        node_ = node_ - 1;
-        //std::cout << node_ << std::endl;
-    }
-    //std::cout << head_ref->area << std::endl;
-    //std::cout << "Node after:" << head_ref->node_ << std::endl;
-    head_ref->node_ = node_;
-    //std::cout <<  "Node after backward:" << head_ref->node_ << std::endl;
-    
-    return head_ref;
-}
-
-Location* Location::start(Location* head_ref){
-
-    head_ref->append(&head_ref, "Office Area");
-    head_ref->append(&head_ref, "Break Area");
-    head_ref->append(&head_ref, "Test Area");
-    head_ref->append(&head_ref, "Component Storage");
-    return head_ref;
-}
-
-int Location::nextPoint(Location* head_ref){
-    int nextMove = -1;
-    
-    //User can pick next location only if it is a given option
-    while(nextMove <= 0 || nextMove > 4){
-        std::cin >> nextMove;
-    }
-
-    return nextMove;
-}
-
-void Location::description(Location* head_ref){
-    node_ = head_ref->node_;
-    if(node_ == 1){
-        std::cout << "You are in the " << head_ref->area << ". Where you see nothing but cubicals. Henry is sitting at his cubical working.\nA few desk down you see a desk with a notebook on it.\n" << std::endl;
-    }
-    if(node_ == 2){
-        std::cout << "You are in the " << head_ref->area << ". Filled with coffee cups and food wrapers. The is acouple of microwaves and a coffee maker with a pot of coffee.\nYou see Carrie pouring another cup of coffee while talking to Sally.\n" << std::endl;
-    }
-    if(node_ == 3){
-        std::cout << "You are in the " << head_ref->area << ". Where Gary's body lies next to a puddle of water. You can hear the death laser shutting down.\nNext to the laser there are abunch of circuits next to testing equipment." << std::endl;
-    }
-    if(node_ == 4){
-        std::cout << "You are in " << head_ref->area << ". You see Chris and Peter standing at different sides of the room.\nThere is alot of water splashed around the room." << std::endl;
-    }
-    if(node_ > 4 || node_ < 1){
-        std::cout << "Houston we have a problem\n";
-    }
+/**
+ * @brief Creates the linked list
+ * NOTE: This can probably be moved into the constructor, but I'm leaving it here in case I ever need to recreate the list for some reason.
+ */
+void LocationManager::createList(){
+    insert_end(&head,1,"Office Area","You see nothing but cubicals. Henry is sitting at his cubical working.\nA few desks down you see a desk with a notebook on it.");
+    insert_end(&head,2,"Break Area","Filled with coffee cups and food wrapers. The is acouple of microwaves and a coffee maker with a pot of coffee.\nYou see Carrie pouring another cup of coffee while talking to Sally.");
+    insert_end(&head,3,"Test Area","Gary's body lies next to a puddle of water. You can hear the death laser shutting down.\nNext to the laser there are abunch of circuits next to testing equipment.");
+    insert_end(&head,4,"Component Storage","You see Chris and Peter standing at different sides of the room.\nThere is a lot of water splashed around the room.");
 }

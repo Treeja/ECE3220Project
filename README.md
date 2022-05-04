@@ -70,3 +70,7 @@
   - Adapter Design Pattern (Lab10)
   - Factory Design Pattern
     - Characters, Weapons, NPC
+
+# Quotes
+
+ - "This website is anti-cheating"-Sam "I'm not trying to cheat, I'm trying to learn!" - Nick
