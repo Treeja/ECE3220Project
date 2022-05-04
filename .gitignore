@@ -3,3 +3,5 @@ project*
 *.o
 /build/*
 *akefile
+
+.DS_Store
