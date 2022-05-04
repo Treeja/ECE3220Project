@@ -1,6 +1,5 @@
 .vscode/
 project*
-main*
 *.o
 /build/*
 *akefile
