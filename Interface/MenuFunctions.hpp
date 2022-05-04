@@ -46,6 +46,25 @@ int getInput(){
  * 
  * @param context 
  */
+
+//Wraps written prose
+void wrap(std::string const &input, size_t width, std::ostream &os, size_t indent = 0) {
+    std::istringstream in(input);
+
+    os << std::string(indent, ' ');
+    size_t current = indent;
+    std::string word;
+
+    while (in >> word) {
+        if (current + word.size() > width) {
+            os << "\n" << std::string(indent, ' ');
+            current = indent;
+        }
+        os << word << ' ';
+        current += word.size() + 1;
+    }
+}
+
 void MoveMenu(Context *context, LocationManager *locManager){
     int choice = 0;
     context->set_strategy(new Move);
@@ -213,16 +232,25 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     NPCchoice = getInput();
                     switch (NPCchoice){
                     case 1:
-                        std::cout << availableCharacters.at(ChosenNPC).second->get_descrip();
+                        std::cout<<"\n\n";
+                        //std::cout << availableCharacters.at(ChosenNPC).second->get_descrip();
+                        wrap(availableCharacters.at(ChosenNPC).second->get_descrip() ,72, std::cout, 0);
+                        std::cout<<"\n\n";
                         break;
                     case 2:
                         std::cout << "What would you like to ask?\n";
                         dia->printQuestions();
                         questionChoice = getInput();
-                        std::cout << availableCharacters.at(ChosenNPC).second->get_dialogue(questionChoice);
+                        std::cout<<"\n\n";
+                        //std::cout << availableCharacters.at(ChosenNPC).second->get_dialogue(questionChoice);
+                        wrap(availableCharacters.at(ChosenNPC).second->get_dialogue(questionChoice) ,72, std::cout, 0);
+                        std::cout<<"\n\n";
                         break;
                     case 3:
-                        std::cout << availableCharacters.at(ChosenNPC).second->search();
+                        //std::cout << availableCharacters.at(ChosenNPC).second->search();
+                        std::cout<<"\n\n";
+                        wrap(availableCharacters.at(ChosenNPC).second->search(),72, std::cout, 0);
+                        std::cout<<"\n\n";
                         break;
                     case 4:
                         return;
@@ -245,9 +273,12 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
 
 //endgame written prose if you guess the correct killer
 void endgameCorrect(){
-    std::cout<<"You gather everyone into the test area. Gary is still lying there the blood pool is even bigger than it was before\n\n You look around and don't see Peter amoung the group, you quietly inform everyone that you believe Peter is the killer. Just as you do this you hear the Death Laser power on and rotate toward you and the others.\n\n Peter has a menacing look on his face and his finger in on the trigger of the Death Laser. He exclaims 'Well, well you figured it out. I never thought anyone would expect the lowly janitor. I am tired of cleaning up after you reckless slobs. Gary was the worst, coffee spills on the floor, componets all over the desks, exposed wires always left open. I didn't think anyone would think twice about him 'accidently' shocking himself, so I cut the wires he was working on when he wasn't looking. That didn't work though it just gave him a little shock and caused the lights to go out. While he was on the ground I hit him with my mop and did my best to clean up any blood in the area then ran over the the component storage before the emergency lights kicked on.'\n\n 'I can't have any witnesses...'\n\n'You all have to die!'\n\n As Peter pulled the trigger the lights kicked back on. The police entered the room. You immediatly hear a gunshot and see Peter laying on the ground...he's dead\n\n";
+    Clear();
+    std::string in = "You gather everyone into the test area. Gary is still lying there the blood pool is even bigger than it was before\n\n You look around and don't see Peter amoung the group, you quietly inform everyone that you believe Peter is the killer. Just as you do this you hear the Death Laser power on and rotate toward you and the others.\n\n Peter has a menacing look on his face and his finger in on the trigger of the Death Laser. He exclaims 'Well, well you figured it out. I never thought anyone would expect the lowly janitor. I am tired of cleaning up after you reckless slobs. Gary was the worst, coffee spills on the floor, componets all over the desks, exposed wires always left open. I didn't think anyone would think twice about him 'accidently' shocking himself, so I cut the wires he was working on when he wasn't looking. That didn't work though it just gave him a little shock and caused the lights to go out. While he was on the ground I hit him with my mop and did my best to clean up any blood in the area then ran over the the component storage before the emergency lights kicked on.'\n\n 'I can't have any witnesses...'\n\n'You all have to die!'\n\n As Peter pulled the trigger the lights kicked back on. The police entered the room. You immediatly hear a gunshot and see Peter laying on the ground...he's dead\n\n";
 
-    std::cout<<"Thank you for playing!"<<std::endl;
+    wrap(in,72, std::cout, 0);
+
+    std::cout<<"\n\nThank you for playing!\n\n"<<std::endl;
 
     exit(0);
 }
