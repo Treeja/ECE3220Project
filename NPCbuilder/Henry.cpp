@@ -23,6 +23,9 @@ Who do you think killed Gary?
 
 //Dialogue for Henry, Max 3 options controlled by exhaustion variable
 std::string Henry::get_dialogue(int choice){
+    if(exhaustion_>3)
+        exhaustion_ = 0;
+        
     if(exhaustion_ < 3){  
         switch (choice)
         {
