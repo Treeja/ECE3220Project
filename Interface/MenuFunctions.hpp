@@ -231,7 +231,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     case 1:
                         std::cout<<"\n\n";
                         //std::cout << availableCharacters.at(ChosenNPC).second->get_descrip();
-                        wrap(availableCharacters.at(ChosenNPC).secongit d->get_descrip() ,100, std::cout, 0);
+                        wrap(availableCharacters.at(ChosenNPC).second->get_descrip() ,100, std::cout, 0);
                         std::cout<<"\n\n";
                         break;
                     case 2:
