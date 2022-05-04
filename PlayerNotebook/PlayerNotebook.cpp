@@ -35,11 +35,11 @@ void PlayerNotebook::createNotebook(){
 }
 
 void PlayerNotebook::readNotebook(){
-    XMLDocument xmlDoc;
-    xmlDoc.LoadFile("SavedData.xml");
-    for (auto part : selection (*xmlDoc, "IntValue")){
-    std::cout << text (part);
-    }
+    // XMLDocument xmlDoc;
+    // xmlDoc.LoadFile("SavedData.xml");
+    // for (auto part : selection (*xmlDoc, "IntValue")){
+    // std::cout << text (part);
+    // }
 
     
     
