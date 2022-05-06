@@ -69,7 +69,6 @@ void MoveMenu(Context *context, LocationManager *locManager){
     int choice = 0;
     context->set_strategy(new Move);
     Node* tmp = new Node();
-    Clear();
     do
     {
         std::cout << "\n[Move Menu]\n";
@@ -102,7 +101,7 @@ void MoveMenu(Context *context, LocationManager *locManager){
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
                 return;
             case 5:
-                std::cout << "[Go Back] Chosen!\n";
+                Clear();
                 return;
             default:
                 std::cout << "Wrong Choice!\n";
@@ -118,7 +117,6 @@ void MoveMenu(Context *context, LocationManager *locManager){
  */
 void InteractMenu(Context *context, LocationManager *locManager, Character* charList[]){
     int choice = 0;
-    Clear();
     do
     { 
         context->set_strategy(new Interact);
@@ -158,7 +156,6 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
         choice = getInput();
         switch(choice){
             case 1:
-                Clear();
                 context->set_strategy(new Interact_Object);
                 do
                 {
@@ -174,46 +171,44 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                         switch (pos)
                         {
                         case 1:
-                            std::cout << "[Description] Chosen!\n\n Objects in Office Area\n";
+                            std::cout << "\nObjects in Office Area\n";
                             obj->get_object_Off();
                             pick = obj->pickObj(4);
                             obj->get_description_Off(pick);
                             break;
                         case 2:
-                            std::cout << "[Description] Chosen!\n\n Objects in Break Area\n";
+                            std::cout << "\nObjects in Break Area\n";
                             obj->get_object_breakR();
                             pick = obj->pickObj(3);
                             obj->get_description_Break(pick);
                             break;
                         case 3:
-                            std::cout << "[Description] Chosen!\n\n Objects in Test Area\n";
+                            std::cout << "\nObjects in Test Area\n";
                             obj->get_object_test();
                             pick = obj->pickObj(4);
                             obj->get_description_Test(pick);
                             break;
                         case 4:
-                            std::cout << "[Description] Chosen!\n\n Objects in Component Storage\n";
+                            std::cout << "\nObjects in Component Storage\n";
                             obj->get_object_com();
                             pick = obj->pickObj(3);
                             obj->get_description_Com(pick);
                             break;
                         case 5:
-                            std::cout << "[Go Back] Chosen!\n";
                             break;
                         default:
                             break;
                         }
                     case 2:
-                            std::cout << "[Go Back] Chosen!\n";
-                            break;
-                        default:
-                            break;
+                        break;
+                    default:
+                        break;
                     }
                 } while (choice != 2);
+                Clear();
                 break;
             case 2:
                 context->set_strategy(new Interact_NPC);
-                Clear();
                 do
                 {
                     std::cout << "\n[Interact NPC Menu]\n";
@@ -223,8 +218,10 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     }
                     std::cout <<"(" << availableCharacters.size()+1 << ") Go Back\n";
                     int ChosenNPC = getInput();
-                    if(ChosenNPC == availableCharacters.size()+1)
+                    if(ChosenNPC == availableCharacters.size()+1){
+                        Clear();
                         return;
+                    }
                     if(ChosenNPC == availableCharacters.size()+2)
                         std::cout << "Wrong input!\n";
                     std::cout << "What would you like to do?\n";
@@ -234,7 +231,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     case 1:
                         std::cout<<"\n\n";
                         //std::cout << availableCharacters.at(ChosenNPC).second->get_descrip();
-                        wrap(availableCharacters.at(ChosenNPC).second->get_descrip() ,72, std::cout, 0);
+                        wrap(availableCharacters.at(ChosenNPC).second->get_descrip() ,100, std::cout, 0);
                         std::cout<<"\n\n";
                         break;
                     case 2:
@@ -243,16 +240,17 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                         questionChoice = getInput();
                         std::cout<<"\n\n";
                         //std::cout << availableCharacters.at(ChosenNPC).second->get_dialogue(questionChoice);
-                        wrap(availableCharacters.at(ChosenNPC).second->get_dialogue(questionChoice) ,72, std::cout, 0);
+                        wrap(availableCharacters.at(ChosenNPC).second->get_dialogue(questionChoice) ,100, std::cout, 0);
                         std::cout<<"\n\n";
                         break;
                     case 3:
                         //std::cout << availableCharacters.at(ChosenNPC).second->search();
                         std::cout<<"\n\n";
-                        wrap(availableCharacters.at(ChosenNPC).second->search(),72, std::cout, 0);
+                        wrap(availableCharacters.at(ChosenNPC).second->search(),100, std::cout, 0);
                         std::cout<<"\n\n";
                         break;
                     case 4:
+                        Clear();
                         return;
                     default:
                         std::cout << "Wrong Choice!\n";
@@ -261,6 +259,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                 } while (NPCchoice != 4);
                 break;
             case 3:
+                Clear();
                 return;
             default:
                 std::cout << "Wrong input!\n";
@@ -274,18 +273,35 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
 //endgame written prose if you guess the correct killer
 void endgameCorrect(){
     Clear();
-    std::string in = "You gather everyone into the test area. Gary is still lying there the blood pool is even bigger than it was before\n\n You look around and don't see Peter amoung the group, you quietly inform everyone that you believe Peter is the killer. Just as you do this you hear the Death Laser power on and rotate toward you and the others.\n\n Peter has a menacing look on his face and his finger in on the trigger of the Death Laser. He exclaims 'Well, well you figured it out. I never thought anyone would expect the lowly janitor. I am tired of cleaning up after you reckless slobs. Gary was the worst, coffee spills on the floor, componets all over the desks, exposed wires always left open. I didn't think anyone would think twice about him 'accidently' shocking himself, so I cut the wires he was working on when he wasn't looking. That didn't work though it just gave him a little shock and caused the lights to go out. While he was on the ground I hit him with my mop and did my best to clean up any blood in the area then ran over the the component storage before the emergency lights kicked on.'\n\n 'I can't have any witnesses...'\n\n'You all have to die!'\n\n As Peter pulled the trigger the lights kicked back on. The police entered the room. You immediatly hear a gunshot and see Peter laying on the ground...he's dead\n\n";
+    std::string in = "You gather everyone into the test area. Gary is still lying there the blood pool is even bigger than it was before\n\n You look around and don't see Peter amoung the group, you quietly inform everyone that you believe Peter is the killer. Just as you do this you hear the Death Laser power on and rotate toward you and the others.\n\n Peter has a menacing look on his face and his finger is on the trigger of the Death Laser. He exclaims 'Well, well you figured it out. I never thought anyone would expect the lowly janitor. I am tired of cleaning up after you reckless slobs. Gary was the worst, coffee spills on the floor, componets all over the desks, exposed wires always left open. I didn't think anyone would think twice about him 'accidently' shocking himself, so I cut the wires he was working on when he wasn't looking. That didn't work though it just gave him a little shock and caused the lights to go out. While he was on the ground I hit him with a wrench and did my best to clean up any blood in the area and the wrench then ran over the the component storage before the emergency lights kicked on.'\n\n 'I can't have any witnesses...'\n\n'You all have to die!'\n\n As Peter pulled the trigger the lights kicked back on. The police entered the room. You immediatly hear a gunshot and see Peter laying on the ground...he's dead\n\n";
 
-    wrap(in,72, std::cout, 0);
+    wrap(in,100, std::cout, 0);
 
     std::cout<<"\n\nThank you for playing!\n\n"<<std::endl;
 
     exit(0);
 }
 
-void endgameWrong(){
+void endgameWrong(std::string character){
 
-    return;
+    Clear();
+    std::string gender;
+    std::string gender2;
+    if(character == "Carrie" || character == "Sally"){
+        gender = "her";
+        gender2 = "her";
+    }
+    else{
+        gender = "him";
+        gender2 = "his";
+    }
+    std::string in = "You gather everyone in the test area, point at " + character + " and exclaim '" + character +" did it.' The group quickly looks at " + character + " and grabs " +gender+  ". " +character+ " wrestles the group screaming 'It wasn't me it wasn't me!' As " +character+ " fights for " +gender2+ " life the lights quickly flash on and the police enter the room. They quickly detain " +character+ " and lead " +gender+ " away, patting you on the back saying job well done. " +character+ " is going to be in prison for a long long time. As the commotion dies down the police interview everyone, everyone's story matches up and it is a closed case. You are one of the last to leave the building, other than Peter who is cleaning up. As you are leaving you see Peter clutching a wrentch and hear him lightly say 'That was all to easy'.....\n\n";
+    wrap(in,100, std::cout, 0);
+
+    std::cout<<"\nThank you for playing!\n";
+
+
+    exit(0);
 
 }
 
@@ -302,11 +318,11 @@ void DeclareKillerMenu(Context *context){
             endgameCorrect();
         }
         else{
-            endgameWrong();
+            std::string characters[6] = {"Carrie", "Chris", "Gary", "Henry", "Peter", "Sally"};
+            endgameWrong(characters[killerChoice-1]);
         }
         
     } else if (choice == 2){
-        std::cout << "No Kill! No Kill! No Kill!\n";
         return;
     } else {
         std::cout << "Wrong Choice, try again later!";
@@ -324,27 +340,30 @@ void MainMenuMenu(Context *context, Character* charList[]){
     int userChoice = 0;
     Object objects;
     LocationManager *locManager = new LocationManager();
-    
+    Clear();
     locManager->createList();
     do
     {
-        Clear();
         context->set_strategy(new MainMenu);
         std::cout << "What would you like to do?\n";
         context->PrintQuestions();
         userChoice = getInput();
         switch(userChoice){
             case 1:
+                Clear();
                 MoveMenu(context, locManager);
                 // Gavin's functions.
                 break;
             case 2:
+                Clear();
                 InteractMenu(context, locManager, charList); // The questions for NPCs depend on where you are
                 break;
             case 3:
+                Clear();
                 DeclareKillerMenu(context);
                 break;
             case 4:
+                Clear();
                 std::cout << "Goodbye!\n";
                 break;
             default:
