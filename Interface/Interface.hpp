@@ -67,7 +67,8 @@ class MainMenu : public Strategy{
             {1, "(1) Move"},
             {2, "(2) Interact"},
             {3, "(3) Declare Killer"},
-            {4, "(4) Exit game"}
+            {4, "(4) Exit game"},
+            {5, "(5) Introduction"}
         };
     public:
         MainMenu();
