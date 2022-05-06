@@ -77,6 +77,7 @@ void MoveMenu(Context *context, LocationManager *locManager){
         choice = getInput();
         if(choice == locManager->getCurrentPos()){
             std::cout << "You are currently there!\n";
+            delete(tmp);
             return;
         }
         switch(choice){
@@ -84,23 +85,28 @@ void MoveMenu(Context *context, LocationManager *locManager){
                 std::cout << std::endl;//"[Office Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
+                delete(tmp);
                 return;
             case 2:
                 std::cout << std::endl;//"[Break Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
+                delete(tmp);
                 return;
             case 3:
                 std::cout << std::endl;//"[Test Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
+                delete(tmp);
                 return;
             case 4:
                 std::cout << std::endl;//"[Component Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
+                delete(tmp);
                 return;
             case 5:
+                delete(tmp);
                 Clear();
                 return;
             default:
@@ -108,6 +114,7 @@ void MoveMenu(Context *context, LocationManager *locManager){
                 break;
         }
     } while (choice != 5);
+    delete(tmp);
     return;
 }
 /**
@@ -251,6 +258,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                         break;
                     case 4:
                         Clear();
+                        delete(dia);
                         return;
                     default:
                         std::cout << "Wrong Choice!\n";
@@ -260,6 +268,7 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                 break;
             case 3:
                 Clear();
+                delete(dia);
                 return;
             default:
                 std::cout << "Wrong input!\n";
@@ -331,16 +340,19 @@ void DeclareKillerMenu(Context *context){
 }
 
 void Introduction(){
-    std::cout << "Welcome to our murder mystery 'Who Killed Gary GPA' by Sam Bealmer, Nick Ebers, and Gavin Stoddard.\n";
-    std::cout << "As a recent graduates from Universty of Missouri College of Journalism I went to the most famous lab on campus to interview the researchers in the lab. The lab was working on a breakthrough invention of a death laser. When walking into lab I meet the employees who work under the great Gary GPA. First I met the undergraduate research student Chris Capstone, PhD Student Carrie Circuits, and the Co-author Henry Honors Project. Continuing my tour around the lab I meet a Janitor named Peter Power electronics who was complaning about always having to clean up after all these lazy researchers. I then ran into Gray GPA who abrutly stopped a heated argument with a financer of the project named Sally Software. He then kindly greeted me and helped me finish the tour. We finished the tour by him showing me the newly finsihed death laser. Hew then told me to make myself at home and he would catch up with me for a full interview in a acouple of minutes. I made my way back to the Office Area when the lights shut off. I stood in complete darkness for about 30 minutes until the back power finally kicked in and the emergy lights were the only things lighting up the room. I then heard a scream from the testing area and there was Carrie and on the ground was Gary GPA dead on the floor. Everyone came running in and I proceeded to call the police. The police informed me to make everyone leave the crime area but to not leave the lab until they get there for questioning. As we waiting for the police I saw an opportnity to be the first reporter on a breaking story. Making my way back to the office area once again I decided I was going to crack this case before the police got the scene!\n";
-    std::cout << "***INSTRUCTIONS***\n In this game you will be able to move around from area to area talking to the people in each area and check out some of the objects to see if you are able to figure out who killed Gary GPA. When moving to different areas you will want to pick the interact option to talk suspects or to look at an object. Make sure you do your best work and pick the correct killer! Have fun!\n";
+    std::cout << "Welcome to our murder mystery 'Who Killed Gary GPA' by Sam Bealmer, Nick Ebers, and Gavin Stoddard.\n\n";
+    std::string prose = "As a recent graduates from Universty of Missouri College of Journalism I went to the most famous lab on campus to interview the researchers in the lab. The lab was working on a breakthrough invention of a death laser. When walking into lab I meet the employees who work under the great Gary GPA. First I met the undergraduate research student Chris Capstone, PhD Student Carrie Circuits, and the Co-author Henry Honors Project. Continuing my tour around the lab I meet a Janitor named Peter Power electronics who was complaning about always having to clean up after all these lazy researchers. I then ran into Gray GPA who abrutly stopped a heated argument with a financer of the project named Sally Software. He then kindly greeted me and helped me finish the tour. We finished the tour by him showing me the newly finsihed death laser. Hew then told me to make myself at home and he would catch up with me for a full interview in a acouple of minutes. I made my way back to the Office Area when the lights shut off. I stood in complete darkness for about 30 minutes until the back power finally kicked in and the emergy lights were the only things lighting up the room. I then heard a scream from the testing area and there was Carrie and on the ground was Gary GPA dead on the floor. Everyone came running in and I proceeded to call the police. The police informed me to make everyone leave the crime area but to not leave the lab until they get there for questioning. As we waiting for the police I saw an opportnity to be the first reporter on a breaking story. Making my way back to the office area once again I decided I was going to crack this case before the police got the scene!\n";
+    wrap(prose,100, std::cout, 0);
+    std::cout << "***INSTRUCTIONS***" << std::endl;
+    std::string inst = "In this game you will be able to move around from area to area talking to the people in each area and check out some of the objects to see if you are able to figure out who killed Gary GPA. When moving to different areas you will want to pick the interact option to talk suspects or to look at an object. Make sure you do your best work and pick the correct killer! Have fun!";
+    wrap(inst,100, std::cout, 0);
+    std::cout << std::endl;
 }
 
 void MainMenuMenu(Context *context, Character* charList[]){
     int userChoice = 0;
     Object objects;
     LocationManager *locManager = new LocationManager();
-    Clear();
     locManager->createList();
     do
     {
@@ -365,6 +377,9 @@ void MainMenuMenu(Context *context, Character* charList[]){
             case 4:
                 Clear();
                 std::cout << "Goodbye!\n";
+                break;
+            case 5:
+                Introduction();
                 break;
             default:
                 std::cout << "You can't do that!\n";

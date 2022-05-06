@@ -27,6 +27,7 @@ int main(int argc, char** argv){
     charList[3] = charFac.createHenry();
     charList[4] = charFac.createPeter();
     charList[5] = charFac.createSally();
+    Introduction();
     MainMenuMenu(context, charList);
 
     // TEST
