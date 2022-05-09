@@ -205,6 +205,8 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                     default:
                         break;
                     }
+                delete(obj);
+                obj = nullptr;
                 } while (choice != 2);
                 Clear();
                 break;
@@ -268,7 +270,8 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                 std::cout << "Wrong input!\n";
                 break;
         }
-        
+        delete(dia);
+        dia = nullptr;
     } while (choice != 3);
     return;
 }
