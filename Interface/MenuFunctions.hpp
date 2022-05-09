@@ -68,7 +68,7 @@ void wrap(std::string const &input, size_t width, std::ostream &os, size_t inden
 void MoveMenu(Context *context, LocationManager *locManager){
     int choice = 0;
     context->set_strategy(new Move);
-    Node* tmp = new Node();
+    Node* tmp = nullptr;
     do
     {
         std::cout << "\n[Move Menu]\n";
@@ -77,7 +77,6 @@ void MoveMenu(Context *context, LocationManager *locManager){
         choice = getInput();
         if(choice == locManager->getCurrentPos()){
             std::cout << "You are currently there!\n";
-            delete(tmp);
             return;
         }
         switch(choice){
@@ -85,36 +84,31 @@ void MoveMenu(Context *context, LocationManager *locManager){
                 std::cout << std::endl;//"[Office Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
-                delete(tmp);
                 return;
             case 2:
                 std::cout << std::endl;//"[Break Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
-                delete(tmp);
                 return;
             case 3:
                 std::cout << std::endl;//"[Test Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
-                delete(tmp);
                 return;
             case 4:
                 std::cout << std::endl;//"[Component Area] Chosen!\n";
                 tmp = locManager->findNode(locManager->getHead(),choice);
                 std::cout << "You are in the " << tmp->areaName_ << ". " << tmp->areaDescription_ << std::endl << std::endl;
-                delete(tmp);
                 return;
             case 5:
-                delete(tmp);
                 Clear();
                 return;
             default:
                 std::cout << "Wrong Choice!\n";
-                break;
+                
         }
+        tmp = nullptr;
     } while (choice != 5);
-    delete(tmp);
     return;
 }
 /**

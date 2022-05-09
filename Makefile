@@ -1,5 +1,4 @@
 SOURCES := $(wildcard */*.cpp)
-			
 
 TARGET := project
 
@@ -13,3 +12,7 @@ $(TARGET) : $(OBJS) main.cpp
 .PHONY : clean
 clean : 
 	-rm -rf $(TARGET) $(OBJS)
+
+.PHONY : val
+val:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(TARGET)

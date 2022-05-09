@@ -20,13 +20,13 @@ LocationManager::LocationManager(){}
  * 
  */
 LocationManager::~LocationManager(){
-    Node* temp = new Node();
+    Node* temp = nullptr;
     while(head != NULL){
         temp = head;
         head = head->next;
         delete(temp);
-        temp = nullptr;
     }
+    temp = nullptr;
 }
 
 /**
@@ -45,7 +45,7 @@ struct Node* LocationManager::findNode(Node* head, int n){
         }
         node = node->next;
     }
-    //std::cerr << "No such location available!\n";
+    std::cerr << "No such location available!\n";
     return nullptr;
 }
 
