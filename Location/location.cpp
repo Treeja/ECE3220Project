@@ -25,6 +25,7 @@ LocationManager::~LocationManager(){
         temp = head;
         head = head->next;
         delete(temp);
+        temp = nullptr;
     }
 }
 
