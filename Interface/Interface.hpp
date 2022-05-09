@@ -51,7 +51,10 @@ class Context
         Strategy *strategy_;
     public:
         Context(Strategy* const s ) : strategy_(s){}
-        ~Context(){delete this->strategy_;}
+        ~Context(){
+            delete this->strategy_;
+            strategy_ = nullptr;
+        }
         void set_strategy(Strategy *strategy){
             delete this->strategy_;
             this->strategy_ = strategy;

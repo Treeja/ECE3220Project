@@ -11,7 +11,6 @@
 
 #ifndef MENUFUNCTIONS_H
 #define MENUFUNCTIONS_H
-#include "../Dialogue/dialogue.hpp"
 #include "../Interface/Interface.hpp"
 #include "../Location/location.h"
 #include "../Location/objects.h"
@@ -121,7 +120,6 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
     do
     { 
         context->set_strategy(new Interact);
-        DialogueDecision *dia = new DialogueDecision();
         int pos = locManager->getCurrentPos();
         std::map<int, std::pair<std::string, Character*>> availableCharacters = {};
         // This switch decides what NPCs will be available depending on the location
@@ -239,7 +237,11 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                         break;
                     case 2:
                         std::cout << "What would you like to ask?\n";
-                        dia->printQuestions();
+                        std::cout << "(1) How do you know Gary?" << std::endl;
+                        std::cout << "(2) Where were you before the lights went out?" << std::endl;
+                        std::cout << "(3) What is your involvement with the research?" << std::endl;
+                        std::cout << "(4) Did you hear or see anything worth noting?" << std::endl;
+                        std::cout << "(5) Who do you think killed Gary?" << std::endl;
                         questionChoice = getInput();
                         std::cout<<"\n\n";
                         //std::cout << availableCharacters.at(ChosenNPC).second->get_dialogue(questionChoice);
@@ -254,7 +256,6 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                         break;
                     case 4:
                         Clear();
-                        delete(dia);
                         return;
                     default:
                         std::cout << "Wrong Choice!\n";
@@ -264,14 +265,11 @@ void InteractMenu(Context *context, LocationManager *locManager, Character* char
                 break;
             case 3:
                 Clear();
-                delete(dia);
                 return;
             default:
                 std::cout << "Wrong input!\n";
                 break;
         }
-        delete(dia);
-        dia = nullptr;
     } while (choice != 3);
     return;
 }
@@ -285,7 +283,7 @@ void endgameCorrect(){
 
     std::cout<<"\n\nThank you for playing!\n\n"<<std::endl;
 
-    exit(0);
+    return;
 }
 
 void endgameWrong(std::string character){
@@ -307,7 +305,7 @@ void endgameWrong(std::string character){
     std::cout<<"\nThank you for playing!\n";
 
 
-    exit(0);
+    return;
 
 }
 
@@ -322,10 +320,12 @@ void DeclareKillerMenu(Context *context){
         int killerChoice = getInput();
         if(killerChoice == 5){
             endgameCorrect();
+            goto end;
         }
         else{
             std::string characters[6] = {"Carrie", "Chris", "Gary", "Henry", "Peter", "Sally"};
             endgameWrong(characters[killerChoice-1]);
+            goto end;
         }
         
     } else if (choice == 2){
@@ -334,6 +334,8 @@ void DeclareKillerMenu(Context *context){
         std::cout << "Wrong Choice, try again later!";
         return;
     }
+end:
+    return;
 }
 
 void Introduction(){
@@ -350,7 +352,6 @@ void MainMenuMenu(Context *context, Character* charList[]){
     int userChoice = 0;
     Object objects;
     LocationManager *locManager = new LocationManager();
-    locManager->createList();
     do
     {
         context->set_strategy(new MainMenu);
@@ -370,6 +371,7 @@ void MainMenuMenu(Context *context, Character* charList[]){
             case 3:
                 Clear();
                 DeclareKillerMenu(context);
+                userChoice = 4;
                 break;
             case 4:
                 Clear();
@@ -382,9 +384,9 @@ void MainMenuMenu(Context *context, Character* charList[]){
                 std::cout << "You can't do that!\n";
                 break;
         }
-        
     } while (userChoice != 4);
     delete(locManager);
+    locManager = nullptr;
 }
 
 #endif

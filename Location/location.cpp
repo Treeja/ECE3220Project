@@ -14,7 +14,9 @@
  * In reality, makes an empty list.
  * 
  */
-LocationManager::LocationManager(){}
+LocationManager::LocationManager(){
+    createList();
+}
 /**
  * @brief Destroy the Location Manager:: Location Manager object
  * 
@@ -27,6 +29,8 @@ LocationManager::~LocationManager(){
         delete(temp);
     }
     temp = nullptr;
+    currentPosition = 0;
+    head = nullptr;
 }
 
 /**
@@ -115,6 +119,7 @@ void LocationManager::printList(Node* head){
  * NOTE: This can probably be moved into the constructor, but I'm leaving it here in case I ever need to recreate the list for some reason.
  */
 void LocationManager::createList(){
+    // Inserting strings straight in like this seems to create a mem leak
     insert_end(&head,1,"Office Area","You see nothing but cubicals. Henry is sitting at his cubical working.\nA few desks down you see a desk with a notebook on it.");
     insert_end(&head,2,"Break Area","Filled with coffee cups and food wrapers. The is acouple of microwaves and a coffee maker with a pot of coffee.\nYou see Carrie pouring another cup of coffee while talking to Sally.");
     insert_end(&head,3,"Test Area","Gary's body lies next to a puddle of water. You can hear the death laser shutting down.\nNext to the laser there are abunch of circuits next to testing equipment.");
