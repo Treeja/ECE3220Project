@@ -18,7 +18,7 @@
 
 class Peter : public Character{
 private:
-    int exhaustion_; 
+    int exhaustion_ =0; 
 public:
     Peter();
     std::string get_dialogue(int choice) override;
