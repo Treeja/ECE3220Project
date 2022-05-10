@@ -121,7 +121,7 @@ void LocationManager::printList(Node* head){
 void LocationManager::createList(){
     // Inserting strings straight in like this seems to create a mem leak
     insert_end(&head,1,"Office Area","You see nothing but cubicals. Henry is sitting at his cubical working.\nA few desks down you see a desk with a notebook on it.");
-    insert_end(&head,2,"Break Area","Filled with coffee cups and food wrapers. The is acouple of microwaves and a coffee maker with a pot of coffee.\nYou see Carrie pouring another cup of coffee while talking to Sally.");
+    insert_end(&head,2,"Break Area","Filled with coffee cups and food wrapers. There is a couple of microwaves and a coffee maker with a pot of coffee.\nYou see Carrie pouring another cup of coffee while talking to Sally.");
     insert_end(&head,3,"Test Area","Gary's body lies next to a puddle of water. You can hear the death laser shutting down.\nNext to the laser there are abunch of circuits next to testing equipment.");
     insert_end(&head,4,"Component Storage","You see Chris and Peter standing at different sides of the room.\nThere is a lot of water splashed around the room.");
 }
