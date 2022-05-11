@@ -35,9 +35,14 @@ void Clear(){
  * @return int 
  */
 int getInput(){
-    int choice;
+    int choice = -1;
     std::cout << "Choice: ";
-    std::cin >> choice;
+    std::cin >> choice;  
+    // if((choice < 0) || (choice > 9)){
+    //     std::cout << "Wrong input; Try again!\n";
+    //     choice = -1;
+    //     choice = getInput();
+    // }
     return choice;
 }
 /**
@@ -309,7 +314,7 @@ void endgameWrong(std::string character){
 
 }
 
-void DeclareKillerMenu(Context *context){
+bool DeclareKillerMenu(Context *context){
     context->set_strategy(new DeclareKiller);
     context->PrintQuestions();
     std::cout <<"(1) Yes\n(2) No\n";
@@ -329,13 +334,13 @@ void DeclareKillerMenu(Context *context){
         }
         
     } else if (choice == 2){
-        return;
+        return false;
     } else {
         std::cout << "Wrong Choice, try again later!";
-        return;
+        return false;
     }
 end:
-    return;
+    return true;
 }
 
 void Introduction(){
@@ -352,6 +357,7 @@ void MainMenuMenu(Context *context, Character* charList[]){
     int userChoice = 0;
     Object objects;
     LocationManager *locManager = new LocationManager();
+    bool killCorrect = false;
     do
     {
         context->set_strategy(new MainMenu);
@@ -370,8 +376,11 @@ void MainMenuMenu(Context *context, Character* charList[]){
                 break;
             case 3:
                 Clear();
-                DeclareKillerMenu(context);
-                userChoice = 4;
+                killCorrect = DeclareKillerMenu(context);
+                if(killCorrect){
+                    userChoice = 4;
+                    return;
+                }
                 break;
             case 4:
                 Clear();
