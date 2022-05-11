@@ -379,7 +379,7 @@ void MainMenuMenu(Context *context, Character* charList[]){
                 killCorrect = DeclareKillerMenu(context);
                 if(killCorrect){
                     userChoice = 4;
-                    return;
+                    break;
                 }
                 break;
             case 4:
